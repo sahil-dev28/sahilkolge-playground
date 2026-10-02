@@ -3,6 +3,7 @@ import "./portfolio.css";
 import { PROJECTS, type Played, type ProjectId } from "@/data";
 import { useTheme } from "@/hooks/use-theme";
 import { storage } from "@/lib/storage";
+import { Separator } from "@/components/ui/separator";
 import Care from "@/components/Care";
 import Certs from "@/components/Certs";
 import Contact from "@/components/Contact";
@@ -27,10 +28,10 @@ export default function Portfolio() {
   const markPlayed = (id: ProjectId) => () => setPlayed((p) => (p[id] ? p : { ...p, [id]: true }));
 
   return (
-    <div className="app" data-mode={mode}>
+    <div className="app">
       <Nav dark={dark} onToggleMode={toggleMode} playedCount={playedCount} total={total} />
       <Hero visits={visits} played={played} />
-      <div className="divider" />
+      <Separator />
       <Playground markPlayed={markPlayed} />
       <Care />
       <Skills />
