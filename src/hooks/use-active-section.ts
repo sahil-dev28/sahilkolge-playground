@@ -6,9 +6,14 @@ export function useActiveSection(ids: readonly string[]) {
   useEffect(() => {
     if (typeof IntersectionObserver === "undefined") return;
     const els = ids.map((id) => document.getElementById(id)).filter((el): el is HTMLElement => el !== null);
+    const visible = new Set<string>();
     const io = new IntersectionObserver(
       (entries) => {
-        for (const e of entries) if (e.isIntersecting) setActive(e.target.id);
+        for (const e of entries) {
+          if (e.isIntersecting) visible.add(e.target.id);
+          else visible.delete(e.target.id);
+        }
+        setActive(ids.find((id) => visible.has(id)) ?? null);
       },
       { rootMargin: "-40% 0px -55% 0px" }
     );

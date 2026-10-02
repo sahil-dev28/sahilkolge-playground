@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { Menu, Moon, Sun, X } from "lucide-react";
 import { buttonVariants } from "@/components/ui/button";
 import { Sheet, SheetClose, SheetContent, SheetTitle } from "@/components/ui/sheet";
@@ -16,7 +16,28 @@ interface MobileMenuProps {
 
 export default function MobileMenu({ dark, onToggleMode, playedCount, total }: MobileMenuProps) {
   const [open, setOpen] = useState(false);
+  const pending = useRef<string | null>(null);
   const active = useActiveSection(NAV_IDS);
+
+  const goTo = (id: string) => {
+    pending.current = id;
+    setOpen(false);
+  };
+
+  // Jump only after the sheet has closed and released its scroll lock,
+  // otherwise the lock restores the old scroll position.
+  const handleClosed = (isOpen: boolean) => {
+    const id = pending.current;
+    if (isOpen || !id) return;
+    pending.current = null;
+    requestAnimationFrame(() => {
+      const el = document.getElementById(id);
+      if (!el) return;
+      history.replaceState(null, "", `#${id}`);
+      el.scrollIntoView();
+      el.focus({ preventScroll: true });
+    });
+  };
 
   return (
     <>
@@ -28,10 +49,11 @@ export default function MobileMenu({ dark, onToggleMode, playedCount, total }: M
       >
         <Menu className="size-5" />
       </button>
-      <Sheet open={open} onOpenChange={setOpen}>
+      <Sheet open={open} onOpenChange={setOpen} onOpenChangeComplete={handleClosed}>
         <SheetContent
           side="right"
           showCloseButton={false}
+          finalFocus={() => pending.current === null}
           className="h-dvh gap-0 bg-background px-6 pt-[18px] pb-7 text-base text-foreground shadow-none data-[side=right]:w-full data-[side=right]:border-l-0 data-[side=right]:sm:max-w-none"
         >
           <div className="flex h-11 items-center justify-between">
@@ -53,7 +75,11 @@ export default function MobileMenu({ dark, onToggleMode, playedCount, total }: M
               <a
                 key={id}
                 href={`#${id}`}
-                onClick={() => setOpen(false)}
+                aria-current={active === id ? "location" : undefined}
+                onClick={(e) => {
+                  e.preventDefault();
+                  goTo(id);
+                }}
                 className={cn(
                   "heading-display text-[52px] leading-[1.05] text-foreground",
                   active === id && "font-serif font-normal tracking-[-0.02em] text-primary italic [font-stretch:100%]"

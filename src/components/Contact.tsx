@@ -19,7 +19,7 @@ const LINKS = [
 
 export default function Contact({ playedCount, total, mode }: ContactProps) {
   return (
-    <section id="contact" className="bg-primary text-primary-foreground">
+    <section id="contact" tabIndex={-1} className="scroll-mt-20 outline-none bg-primary text-primary-foreground">
       <div className="wrap flex flex-col gap-9 pt-[110px] pb-12">
         <span className="font-mono text-[13px]">
           you played {playedCount} of {total} demos

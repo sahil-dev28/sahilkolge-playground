@@ -45,7 +45,7 @@ export default function About() {
   const time = useMumbaiTime();
 
   return (
-    <section id="about" className="wrap scroll-mt-20 py-24">
+    <section id="about" tabIndex={-1} className="wrap scroll-mt-20 outline-none py-24">
       <div className="grid items-start gap-10 md:grid-cols-[280px_1fr] md:gap-14">
         <img
           src={profileImg}

@@ -22,7 +22,7 @@ interface PlaygroundProps {
 
 export default function Playground({ markPlayed }: PlaygroundProps) {
   return (
-    <main id="work" className="wrap flex scroll-mt-20 flex-col gap-10 py-10">
+    <main id="work" tabIndex={-1} className="wrap flex scroll-mt-20 outline-none flex-col gap-10 py-10">
       {PROJECTS.map(({ id, meta, title, lead, bullets, liveUrl, image }) => {
         const Demo = DEMOS[id];
         return (
