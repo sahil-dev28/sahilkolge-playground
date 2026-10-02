@@ -5,6 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sahil Kolge · Frontend Developer</title>
     <meta name="description" content="Sahil Kolge, frontend developer. React, Next.js and TypeScript projects you can actually play with." />
+    <script>
+      (function () {
+        try {
+          var m = localStorage.getItem("sk-mode");
+          if (m !== "dark" && m !== "light") {
+            m = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+          }
+          if (m === "dark") document.documentElement.classList.add("dark");
+        } catch (e) {}
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>

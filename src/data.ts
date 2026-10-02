@@ -1,4 +1,36 @@
-export const PROJECTS = [
+export type ProjectId = "p1" | "p2" | "p3" | "p4" | "p5";
+
+export interface Project {
+  id: ProjectId;
+  short: string;
+  meta: string;
+  title: string;
+  lead: string;
+  bullets: string[];
+  liveUrl: string;
+}
+
+export type Played = Partial<Record<ProjectId, true>>;
+
+export interface SkillGroup {
+  k: string;
+  v: string[];
+}
+
+export interface Cert {
+  name: string;
+  url: string;
+}
+
+export interface Contact {
+  email: string;
+  github: string;
+  linkedin: string;
+}
+
+export type CareItem = [title: string, text: string];
+
+export const PROJECTS: Project[] = [
   {
     id: "p1",
     short: "WorkSphere",
@@ -68,7 +100,7 @@ export const PROJECTS = [
   },
 ];
 
-export const SKILLS = [
+export const SKILLS: SkillGroup[] = [
   { k: "core", v: ["HTML", "CSS", "JavaScript", "TypeScript", "Node.js", "MongoDB", "Agentic Coding"] },
   {
     k: "frameworks and libraries",
@@ -77,7 +109,7 @@ export const SKILLS = [
   { k: "tools and platforms", v: ["Git", "GitHub", "Figma", "Claude Code"] },
 ];
 
-export const CERTS = [
+export const CERTS: Cert[] = [
   { name: "React, The Complete Guide", url: "https://bit.ly/4ucSG57" },
   { name: "JavaScript", url: "https://bit.ly/4fvftWk" },
   { name: "JavaScript Projects", url: "https://bit.ly/4xdScyv" },
@@ -85,13 +117,13 @@ export const CERTS = [
   { name: "Claude Code", url: "https://bit.ly/4e4xmc6" },
 ];
 
-export const CONTACT = {
+export const CONTACT: Contact = {
   email: "sahilkolge28@gmail.com",
   github: "https://github.com/sahil-dev28",
   linkedin: "https://linkedin.com/in/sahilkolge-dev",
 };
 
-export const CARE = [
+export const CARE: CareItem[] = [
   ["Performance", "Keyset pagination, cached server state, workers that keep the event loop free."],
   ["State management", "Zustand, Redux Toolkit, TanStack Query and SWR, each where it fits best."],
   ["Clean architecture", "Monorepos, shared types, guards and hooks that keep logic out of components."],

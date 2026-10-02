@@ -1,12 +1,14 @@
+export type Mode = "light" | "dark";
+
 export const storage = {
-  get(key) {
+  get(key: string): string | null {
     try {
       return window.localStorage.getItem(key);
     } catch {
       return null;
     }
   },
-  set(key, val) {
+  set(key: string, val: string): void {
     try {
       window.localStorage.setItem(key, val);
     } catch {
@@ -15,7 +17,7 @@ export const storage = {
   },
 };
 
-export function initialMode() {
+export function initialMode(): Mode {
   const saved = storage.get("sk-mode");
   if (saved === "dark" || saved === "light") return saved;
   try {
