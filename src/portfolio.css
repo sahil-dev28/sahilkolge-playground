@@ -24,7 +24,6 @@ body { margin: 0; }
   letter-spacing: -0.04em;
   line-height: 0.95;
 }
-.btn-reset { font: inherit; cursor: pointer; }
 
 /* ---------- project sections ---------- */
 
@@ -58,24 +57,6 @@ body { margin: 0; }
   margin: 0; background: var(--code); color: #dadae2; border-radius: 12px; padding: 16px;
   font-family: "Martian Mono", monospace; font-size: 13px; line-height: 1.7; white-space: pre-wrap; word-break: break-all;
 }
-
-/* 01 org chart */
-.org-tree { display: flex; flex-direction: column; align-items: center; gap: 10px; padding: 18px; background: var(--muted); border-radius: 14px; }
-.org-node { border: 2px solid var(--foreground); border-radius: 10px; padding: 6px 14px; font-size: 15px; background: var(--card); }
-.org-node.strong { font-weight: 600; }
-.org-node.hr { border-color: var(--primary); color: var(--primary); font-weight: 600; }
-.org-line { width: 2px; height: 14px; background: var(--foreground); }
-.org-row { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; }
-.org-actions { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(220px, 100%), 1fr)); gap: 8px; }
-.org-actions button {
-  text-align: left; min-height: 48px; padding: 10px 14px; border-radius: 10px;
-  border: 1px solid var(--line-2); background: var(--card); font-size: 14px; color: var(--foreground);
-}
-.status { display: flex; flex-direction: column; gap: 4px; padding: 14px 16px; border-radius: 12px; animation: flash 0.5s ease; }
-.status .mono { font-size: 12px; font-weight: 500; }
-.status.idle { background: var(--muted); color: var(--muted-foreground); border: 1px dashed var(--line-2); }
-.status.ok { background: var(--success-bg); color: var(--success); border: 1px solid var(--success-border); }
-.status.bad { background: var(--danger-bg); color: var(--destructive); border: 1px solid var(--danger-border); }
 
 /* 02 pagination */
 .seg { display: flex; gap: 6px; background: var(--panel-2); padding: 4px; border-radius: 10px; }
@@ -135,8 +116,4 @@ body { margin: 0; }
 
 /* ---------- motion ---------- */
 
-@keyframes flash { from { transform: scale(0.97); opacity: 0.4; } to { transform: none; opacity: 1; } }
 
-@media (prefers-reduced-motion: reduce) {
-  .status { animation: none; opacity: 1; transform: none; }
-}
