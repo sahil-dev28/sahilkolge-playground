@@ -1,7 +1,7 @@
 import { ArrowUpRight } from "lucide-react";
 import { buttonVariants } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
-import { CONTACT } from "@/data";
+import { CONTACT, RESUME_URL } from "@/data";
 import type { Mode } from "@/lib/storage";
 import { cn } from "@/lib/utils";
 
@@ -11,7 +11,8 @@ interface ContactProps {
   mode: Mode;
 }
 
-const SOCIAL = [
+const LINKS = [
+  ["Resume (PDF)", RESUME_URL],
   ["GitHub", CONTACT.github],
   ["LinkedIn", CONTACT.linkedin],
 ] as const;
@@ -36,7 +37,7 @@ export default function Contact({ playedCount, total, mode }: ContactProps) {
           >
             {CONTACT.email}
           </a>
-          {SOCIAL.map(([label, href]) => (
+          {LINKS.map(([label, href]) => (
             <a
               key={label}
               href={href}

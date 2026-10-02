@@ -33,6 +33,7 @@ src/demos/                 one file per live demo, plus DemoCard and CodeBlock
 
 ## Common edits
 
+- Resume: replace `public/sahil-kolge-resume.pdf` (same file name)
 - Projects, skills, certificates, contact: `src/data.ts`
 - Add a project: add an entry to `PROJECTS` in `data.ts` (and its id to `ProjectId`), create its demo
   in `src/demos/`, and register it in the `DEMOS` map in `components/Playground.tsx`

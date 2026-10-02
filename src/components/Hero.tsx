@@ -1,6 +1,6 @@
-import { Check } from "lucide-react";
+import { ArrowDown, Check, Download } from "lucide-react";
 import { buttonVariants } from "@/components/ui/button";
-import { PROJECTS, type Played } from "@/data";
+import { PROJECTS, RESUME_URL, type Played } from "@/data";
 import { cn } from "@/lib/utils";
 
 interface HeroProps {
@@ -11,8 +11,8 @@ interface HeroProps {
 export default function Hero({ visits, played }: HeroProps) {
   const greeting =
     visits > 1
-      ? `welcome back · visit #${visits} · open to frontend roles`
-      : "open to frontend roles · new here? start with 01";
+      ? `welcome back · visit #${visits} · open to full stack roles`
+      : "open to full stack roles · Mumbai, India";
 
   return (
     <section id="top" className="wrap flex flex-col gap-8 pt-24 pb-18">
@@ -27,11 +27,29 @@ export default function Hero({ visits, played }: HeroProps) {
         </span>
       </h1>
       <div className="grid grid-cols-[repeat(auto-fit,minmax(min(380px,100%),1fr))] items-end gap-8 motion-safe:animate-rise motion-safe:[animation-delay:350ms]">
-        <p className="m-0 max-w-[600px] text-[21px] leading-normal text-pretty">
-          I'm <strong>Sahil Kolge</strong>, a frontend developer who builds scalable React and Next.js apps, and the
-          Node APIs under them. Every project below has a small live demo of the{" "}
-          <span className="hl-mark">hardest problem I solved in it</span>.
-        </p>
+        <div className="flex flex-col gap-6">
+          <p className="m-0 max-w-[600px] text-[21px] leading-normal text-pretty">
+            I'm <strong>Sahil Kolge</strong>, a full stack developer who builds scalable React and Next.js apps, and
+            the Node APIs under them. Every project below has a small live demo of the{" "}
+            <span className="hl-mark">hardest problem I solved in it</span>.
+          </p>
+          <div className="flex flex-wrap gap-3">
+            <a href="#work" className={buttonVariants({ className: "h-11 rounded-[10px] px-5 text-[15px] font-semibold" })}>
+              Play the demos <ArrowDown aria-hidden />
+            </a>
+            <a
+              href={RESUME_URL}
+              target="_blank"
+              rel="noreferrer"
+              className={cn(
+                buttonVariants({ variant: "outline" }),
+                "h-11 rounded-[10px] border-line-2 bg-card px-5 text-[15px] font-semibold dark:border-line-2 dark:bg-card dark:hover:bg-muted"
+              )}
+            >
+              <Download aria-hidden /> Resume (PDF)
+            </a>
+          </div>
+        </div>
         <div className="flex flex-wrap justify-start gap-2.5 sm:justify-end">
           {PROJECTS.map((p, i) => {
             const done = Boolean(played[p.id]);
