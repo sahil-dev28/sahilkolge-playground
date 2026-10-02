@@ -1,7 +1,12 @@
-# Sahil Kolge · Playable Portfolio (Option G)
+# Sahil Kolge · Playground
 
-A React portfolio where every project has a small live demo of the hardest problem solved in it.
-It uses a single grape colour theme with dark and light mode, and the mode choice is saved in localStorage.
+A React + TypeScript portfolio built with Tailwind CSS and shadcn/ui, where every project has a small
+live demo of the hardest problem solved in it. It uses a grape colour theme with dark and light mode,
+and the mode choice is saved in localStorage.
+
+## Tech
+
+React · TypeScript · Vite · Tailwind CSS v4 · shadcn/ui (Base UI) · lucide-react
 
 ## Run it
 
@@ -15,28 +20,24 @@ Open http://localhost:5173
 ## Files
 
 ```
-src/main.jsx              React entry
-src/Portfolio.jsx         root: mode, visits and played state, composes the sections
-src/data.js               projects, skills, certificates, contact, "care" items
-src/lib/storage.js        safe localStorage helper and initial dark/light mode
-src/components/           Nav, Hero, Playground, ProjectSection, Care, Skills, Certs, Contact, icons
-src/demos/                one file per live demo (OrgDemo, PaginationDemo, HnDemo, UrbanDemo, AxiosDemo)
-src/portfolio.css         all styles, theme tokens are CSS variables at the top
+src/main.tsx               React entry, imports index.css
+src/index.css              Tailwind + shadcn imports, grape theme tokens (light and dark), fonts, keyframes
+src/Portfolio.tsx          root: visits and played state, composes the sections
+src/data.ts                typed projects, skills, certificates, contact, "care" items
+src/hooks/use-theme.ts     dark/light mode, saved in localStorage
+src/lib/                   storage helper, cn() class helper
+src/components/ui/         shadcn/ui components (generated with the shadcn CLI)
+src/components/            Nav, Hero, Playground, ProjectSection, Care, Skills, Certs, Contact
+src/demos/                 one file per live demo, plus DemoCard and CodeBlock
 ```
 
 ## Common edits
 
-- Projects, skills, certificates, contact: `src/data.js`
-- Add a project: add an entry to `PROJECTS` in `data.js`, create its demo in `src/demos/`,
-  and register it in the `DEMOS` map in `components/Playground.jsx`
-- Accent colours: `--al`, `--ad` and `--mark` at the top of `portfolio.css`
-- Default mode for first time visitors: `initialMode()` in `lib/storage.js`
-
-## Using it in Next.js
-
-Copy `src/` into your app, add `"use client";` as the first line of `Portfolio.jsx` (everything
-it imports becomes client code too), and import the CSS from `app/layout.jsx` (or keep the import,
-Next allows global CSS imported from client components in the app router).
+- Projects, skills, certificates, contact: `src/data.ts`
+- Add a project: add an entry to `PROJECTS` in `data.ts` (and its id to `ProjectId`), create its demo
+  in `src/demos/`, and register it in the `DEMOS` map in `components/Playground.tsx`
+- Colours: CSS variables in `:root` (light) and `.dark` (dark) in `src/index.css`
+- Add a shadcn component: `npx shadcn@latest add <name>`
 
 ## Deploy
 

@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import "./portfolio.css";
 import { PROJECTS, type Played, type ProjectId } from "@/data";
 import { useTheme } from "@/hooks/use-theme";
 import { storage } from "@/lib/storage";
@@ -28,7 +27,7 @@ export default function Portfolio() {
   const markPlayed = (id: ProjectId) => () => setPlayed((p) => (p[id] ? p : { ...p, [id]: true }));
 
   return (
-    <div className="app">
+    <div className="min-h-screen">
       <Nav dark={dark} onToggleMode={toggleMode} playedCount={playedCount} total={total} />
       <Hero visits={visits} played={played} />
       <Separator />
