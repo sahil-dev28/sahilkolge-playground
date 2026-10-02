@@ -1,3 +1,9 @@
+import ecommerceImg from "@/assets/projects/e-commerce.webp";
+import hackerNewsImg from "@/assets/projects/hacker-news.webp";
+import philkartImg from "@/assets/projects/philkart.webp";
+import urbanEstateImg from "@/assets/projects/urban-estate.webp";
+import worksphereImg from "@/assets/projects/worksphere.webp";
+
 export type ProjectId = "p1" | "p2" | "p3" | "p4" | "p5";
 
 export interface Project {
@@ -8,6 +14,7 @@ export interface Project {
   lead: string;
   bullets: string[];
   liveUrl: string;
+  image: string;
 }
 
 export type Played = Partial<Record<ProjectId, true>>;
@@ -44,6 +51,7 @@ export const PROJECTS: Project[] = [
       "Recharts dashboard for headcount, hiring trend and active split.",
     ],
     liveUrl: "https://work-sphere-web.vercel.app",
+    image: worksphereImg,
   },
   {
     id: "p2",
@@ -58,6 +66,7 @@ export const PROJECTS: Project[] = [
       "Zod request schemas, central error middleware, shared shadcn/ui tokens with dark and light themes.",
     ],
     liveUrl: "https://philkart-web.vercel.app",
+    image: philkartImg,
   },
   {
     id: "p3",
@@ -71,6 +80,7 @@ export const PROJECTS: Project[] = [
       "Zustand actions reset the page index when filters change, so you never land on an empty page.",
     ],
     liveUrl: "https://hacker-news-clone-sahil.vercel.app",
+    image: hackerNewsImg,
   },
   {
     id: "p4",
@@ -84,6 +94,7 @@ export const PROJECTS: Project[] = [
       "Map discovery with custom Leaflet markers and useSearchParams synced filters.",
     ],
     liveUrl: "https://urban-estate-nine.vercel.app",
+    image: urbanEstateImg,
   },
   {
     id: "p5",
@@ -97,6 +108,7 @@ export const PROJECTS: Project[] = [
       "30+ reusable data hooks that keep API logic out of the UI, with skeleton loaders.",
     ],
     liveUrl: "https://e-commerce-smk-user-frontend.vercel.app",
+    image: ecommerceImg,
   },
 ];
 
@@ -128,4 +140,13 @@ export const CARE: CareItem[] = [
   ["State management", "Zustand, Redux Toolkit, TanStack Query and SWR, each where it fits best."],
   ["Clean architecture", "Monorepos, shared types, guards and hooks that keep logic out of components."],
   ["Agentic workflows", "Using AI tools like Claude Code to build smarter and ship faster."],
+];
+
+export const RESUME_URL = "/sahil-kolge-resume.pdf";
+
+export const ABOUT: string[] = [
+  "React, TypeScript and Next.js on the front, Node, Express and MongoDB behind it.",
+  "Five projects live in production, each designed, built and deployed end to end, each with a live demo on this page.",
+  "The most involved is Philkart: a Turborepo monorepo with keyset pagination and a worker_threads seeder that never blocks the API.",
+  "I care about clean architecture and state management, and I use agentic workflows to ship faster.",
 ];

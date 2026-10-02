@@ -23,10 +23,19 @@ interface PlaygroundProps {
 export default function Playground({ markPlayed }: PlaygroundProps) {
   return (
     <main id="work" className="wrap flex flex-col gap-10 py-10">
-      {PROJECTS.map(({ id, meta, title, lead, bullets, liveUrl }) => {
+      {PROJECTS.map(({ id, meta, title, lead, bullets, liveUrl, image }) => {
         const Demo = DEMOS[id];
         return (
-          <ProjectSection key={id} id={id} meta={meta} title={title} lead={lead} bullets={bullets} liveUrl={liveUrl}>
+          <ProjectSection
+            key={id}
+            id={id}
+            meta={meta}
+            title={title}
+            lead={lead}
+            bullets={bullets}
+            liveUrl={liveUrl}
+            image={image}
+          >
             <Demo onPlay={markPlayed(id)} />
           </ProjectSection>
         );
