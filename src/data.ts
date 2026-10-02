@@ -150,3 +150,13 @@ export const ABOUT: string[] = [
   "The most involved is Philkart: a Turborepo monorepo with keyset pagination and a worker_threads seeder that never blocks the API.",
   "I care about clean architecture and state management, and I use agentic workflows to ship faster.",
 ];
+
+export const NAV_LINKS = [
+  { id: "work", label: "Playground" },
+  { id: "about", label: "About" },
+  { id: "skills", label: "Skills" },
+  { id: "certs", label: "Certifications" },
+  { id: "contact", label: "Contact" },
+] as const;
+
+export const NAV_IDS = NAV_LINKS.map((l) => l.id);
