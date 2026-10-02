@@ -14,6 +14,7 @@ interface NavProps {
 
 const LINKS = [
   ["#work", "Playground"],
+  ["#about", "About"],
   ["#skills", "Skills"],
   ["#certs", "Certifications"],
   ["#contact", "Contact"],

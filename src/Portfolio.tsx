@@ -3,6 +3,7 @@ import { PROJECTS, type Played, type ProjectId } from "@/data";
 import { useTheme } from "@/hooks/use-theme";
 import { storage } from "@/lib/storage";
 import { Separator } from "@/components/ui/separator";
+import About from "@/components/About";
 import Care from "@/components/Care";
 import Certs from "@/components/Certs";
 import Contact from "@/components/Contact";
@@ -32,6 +33,7 @@ export default function Portfolio() {
       <Hero visits={visits} played={played} />
       <Separator />
       <Playground markPlayed={markPlayed} />
+      <About />
       <Care />
       <Skills />
       <Certs />
