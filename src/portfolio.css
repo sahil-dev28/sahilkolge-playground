@@ -42,16 +42,6 @@ body { margin: 0; }
 .chip:hover { transform: translateY(-2px); }
 .chip:active { transform: translateY(1px); }
 
-.opt {
-  font-family: inherit;
-  min-height: 40px; padding: 8px 14px; font-size: 14px; cursor: pointer;
-  background: var(--card); color: var(--foreground); border: 1px solid var(--line-2);
-}
-.opt.round { border-radius: 999px; }
-.opt.square { border-radius: 10px; }
-.opt.mono { font-family: "Martian Mono", monospace; font-size: 12px; }
-.opt[aria-pressed="true"].ink { background: var(--foreground); color: var(--background); border-color: var(--foreground); }
-.opt[aria-pressed="true"].accent { background: var(--primary); color: var(--primary-foreground); border-color: var(--primary); }
 
 .code {
   margin: 0; background: var(--code); color: #dadae2; border-radius: 12px; padding: 16px;
@@ -60,19 +50,6 @@ body { margin: 0; }
 
 /* 03 HN */
 .row-wrap { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
-
-/* 04 Urban Estate */
-.browser { padding: 0; gap: 0; overflow: hidden; }
-.browser-bar { background: var(--muted); padding: 12px 14px; display: flex; gap: 10px; align-items: center; border-bottom: 1px solid var(--border); }
-.browser-bar .mono:first-child { font-size: 11px; color: var(--muted-foreground); white-space: nowrap; }
-.address {
-  flex-grow: 1; background: var(--card); border: 1px solid var(--border); border-radius: 8px;
-  padding: 8px 12px; font-size: 12.5px; word-break: break-all;
-}
-.address span { color: var(--primary); }
-.browser-body { padding: 22px 24px; display: flex; flex-direction: column; gap: 16px; }
-.filter-group { display: flex; flex-direction: column; gap: 8px; }
-.filter-group > span { font-size: 13px; color: var(--muted-foreground); }
 
 /* 05 Axios */
 .ax-btn {
