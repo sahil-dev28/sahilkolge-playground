@@ -51,22 +51,6 @@ body { margin: 0; }
 /* 03 HN */
 .row-wrap { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
 
-/* 05 Axios */
-.ax-btn {
-  font-family: "Martian Mono", monospace;
-  min-height: 40px; padding: 8px 14px; border-radius: 10px; font-size: 12px; cursor: pointer;
-  background: transparent; color: var(--panel-foreground); border: 1px solid #45454f;
-}
-.ax-btn[aria-pressed="true"] { background: var(--mark); color: #101014; border-color: var(--mark); }
-.ax-steps { display: flex; flex-direction: column; gap: 8px; }
-.ax-step {
-  display: flex; gap: 12px; align-items: center; padding: 10px 14px; border-radius: 10px;
-  border: 1px solid #45454f; color: #8f8fa0; transition: border-color 0.3s;
-}
-.ax-step .mono { font-size: 12px; }
-.ax-step.lit { color: var(--panel-foreground); border-color: #9ed8bc; }
-.ax-step.fail { color: var(--panel-foreground); border-color: #f3b1aa; }
-
 /* ---------- motion ---------- */
 
 
