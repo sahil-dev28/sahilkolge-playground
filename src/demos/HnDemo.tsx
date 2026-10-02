@@ -79,7 +79,7 @@ export default function HnDemo({ onPlay }: DemoProps) {
         </Button>
         <Button
           variant="outline"
-          className="h-10 rounded-full border-line-2 bg-card px-3.5 text-sm font-normal"
+          className="h-10 rounded-full border-line-2 bg-card px-3.5 text-sm font-normal dark:border-line-2 dark:bg-card dark:hover:bg-muted"
           onClick={() => {
             setPage(page + 1);
             onPlay();

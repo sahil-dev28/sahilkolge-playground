@@ -58,14 +58,13 @@ export default function PaginationDemo({ onPlay }: DemoProps) {
     <DemoCard dark title="Why keyset pagination?" action={toggle}>
       <div className="flex flex-col gap-3">
         <div className="flex justify-between font-mono text-[13px] text-panel-muted">
-          <Label htmlFor="pg" className="font-mono text-[13px] font-normal text-panel-muted">
+          <Label id="pg-label" className="font-mono text-[13px] font-normal text-panel-muted">
             jump to page
           </Label>
           <strong className="font-normal text-mark">page {page}</strong>
         </div>
         <Slider
-          id="pg"
-          aria-label="jump to page"
+          aria-labelledby="pg-label"
           min={1}
           max={MAX_PAGE}
           step={1}

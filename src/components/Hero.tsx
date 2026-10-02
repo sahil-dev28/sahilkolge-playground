@@ -41,8 +41,9 @@ export default function Hero({ visits, played }: HeroProps) {
                 href={`#${p.id}`}
                 className={cn(
                   buttonVariants({ variant: "outline" }),
-                  "h-11 rounded-full border-line-2 bg-card px-4 text-[15px] font-semibold transition-transform hover:-translate-y-0.5",
-                  done && "border-foreground bg-foreground text-background hover:bg-foreground/90 hover:text-background"
+                  "h-11 rounded-full border-line-2 bg-card px-4 text-[15px] font-semibold transition-transform hover:-translate-y-0.5 dark:border-line-2 dark:bg-card dark:hover:bg-muted",
+                  done &&
+                    "border-foreground bg-foreground text-background hover:bg-foreground/90 hover:text-background dark:border-foreground dark:bg-foreground dark:hover:bg-foreground/90"
                 )}
               >
                 {done && <Check aria-hidden />}0{i + 1} {p.short}

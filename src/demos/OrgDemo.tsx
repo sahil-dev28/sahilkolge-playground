@@ -58,7 +58,7 @@ export default function OrgDemo({ onPlay }: DemoProps) {
           <Button
             key={a.label}
             variant="outline"
-            className="h-auto min-h-12 justify-start rounded-[10px] border-line-2 bg-card px-3.5 py-2.5 text-left text-sm font-normal whitespace-normal hover:-translate-y-0.5"
+            className="h-auto min-h-12 justify-start rounded-[10px] border-line-2 bg-card px-3.5 py-2.5 text-left text-sm font-normal whitespace-normal hover:-translate-y-0.5 dark:border-line-2 dark:bg-card dark:hover:bg-muted"
             onClick={() => {
               setResult(a);
               onPlay();
