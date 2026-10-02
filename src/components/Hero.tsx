@@ -15,7 +15,7 @@ export default function Hero({ visits, played }: HeroProps) {
       : "open to full stack roles · Mumbai, India";
 
   return (
-    <section id="top" className="wrap flex flex-col gap-8 pt-24 pb-18">
+    <section id="top" className="wrap flex flex-col gap-8 pt-6 pb-18 lg:pt-36">
       <div className="flex flex-wrap items-center gap-2.5 font-mono text-[13px] text-muted-foreground motion-safe:animate-rise motion-safe:[animation-delay:50ms]">
         <span className="size-[9px] rounded-full bg-live motion-safe:animate-dot" />
         <span>{greeting}</span>

@@ -193,7 +193,8 @@
 
 @utility hl-mark {
   background: linear-gradient(transparent 60%, var(--hl) 60%);
-  padding: 0 4px;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
 }
 
 @utility reveal {

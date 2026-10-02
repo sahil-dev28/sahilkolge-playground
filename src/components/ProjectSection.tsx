@@ -10,7 +10,7 @@ export default function ProjectSection({ id, meta, title, lead, bullets, liveUrl
   return (
     <section
       id={id}
-      className="reveal grid scroll-mt-20 grid-cols-[repeat(auto-fit,minmax(min(460px,100%),1fr))] gap-10 border-b py-12 last:border-b-0"
+      className="reveal grid items-start scroll-mt-20 grid-cols-[repeat(auto-fit,minmax(min(460px,100%),1fr))] gap-10 border-b py-12 last:border-b-0"
     >
       <div className="flex flex-col gap-[18px]">
         <div className="font-mono text-xs text-muted-foreground">{meta}</div>
@@ -25,16 +25,18 @@ export default function ProjectSection({ id, meta, title, lead, bullets, liveUrl
           href={liveUrl}
           target="_blank"
           rel="noreferrer"
+          tabIndex={-1}
+          aria-hidden="true"
           className="block overflow-hidden rounded-[14px] border transition-[translate,box-shadow] duration-300 hover:-translate-y-1 hover:shadow-[0_18px_40px_-18px_var(--shadow)]"
         >
           <img
             src={image}
             alt={`Screenshot of ${title}`}
             width={760}
-            height={475}
+            height={390}
             loading="lazy"
             decoding="async"
-            className="aspect-[16/10] w-full object-cover object-top"
+            className="aspect-[760/390] w-full object-cover object-top"
           />
         </a>
         <a

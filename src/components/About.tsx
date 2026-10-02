@@ -7,16 +7,24 @@ function useMumbaiTime() {
   const [now, setNow] = useState(() => new Date());
 
   useEffect(() => {
-    const id = setInterval(() => setNow(new Date()), 30_000);
-    return () => clearInterval(id);
+    let interval: ReturnType<typeof setInterval> | undefined;
+    const timeout = setTimeout(() => {
+      setNow(new Date());
+      interval = setInterval(() => setNow(new Date()), 60_000);
+    }, 60_000 - (Date.now() % 60_000));
+    return () => {
+      clearTimeout(timeout);
+      if (interval) clearInterval(interval);
+    };
   }, []);
 
   try {
-    return new Intl.DateTimeFormat("en-US", {
+    const label = new Intl.DateTimeFormat("en-US", {
       timeZone: "Asia/Kolkata",
       hour: "numeric",
       minute: "2-digit",
     }).format(now);
+    return { label, iso: now.toISOString() };
   } catch {
     return null;
   }
@@ -46,7 +54,7 @@ export default function About() {
           height={280}
           loading="lazy"
           decoding="async"
-          className="size-[220px] rounded-[20px] border object-cover md:size-[280px]"
+          className="size-[220px] rounded-full object-cover lg:size-[280px]"
         />
         <div className="flex flex-col gap-7">
           <h2 className="heading-display text-[clamp(44px,6vw,80px)]">
@@ -58,10 +66,10 @@ export default function About() {
             <Row icon={<MapPin />}>
               Mumbai, India
               {time && (
-                <>
-                  {" · "}
-                  <time className="font-mono text-sm text-muted-foreground">{time} local time</time>
-                </>
+                <span className="text-muted-foreground">
+                  {"\u00a0·\u00a0"}
+                  <time dateTime={time.iso}>{time.label}</time> local time
+                </span>
               )}
             </Row>
             <Row icon={<Mail />}>
