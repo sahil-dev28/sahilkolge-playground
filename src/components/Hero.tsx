@@ -29,8 +29,8 @@ export default function Hero({ visits, played }: HeroProps) {
       <div className="grid grid-cols-[repeat(auto-fit,minmax(min(380px,100%),1fr))] items-end gap-8 motion-safe:animate-rise motion-safe:[animation-delay:350ms]">
         <div className="flex flex-col gap-6">
           <p className="m-0 max-w-[600px] text-[21px] leading-normal text-pretty">
-            I'm <strong>Sahil Kolge</strong>, a full stack developer who builds scalable React and Next.js apps, and
-            the Node APIs under them. Every project below has a small live demo of the{" "}
+            I'm <strong>Sahil Kolge</strong>, a full stack developer with five projects live in production, from React
+            and Next.js frontends to the Node APIs under them. Every project below has a small live demo of the{" "}
             <span className="hl-mark">hardest problem I solved in it</span>.
           </p>
           <div className="flex flex-wrap gap-3">
@@ -50,24 +50,27 @@ export default function Hero({ visits, played }: HeroProps) {
             </a>
           </div>
         </div>
-        <div className="flex flex-wrap justify-start gap-2.5 sm:justify-end">
-          {PROJECTS.map((p, i) => {
-            const done = Boolean(played[p.id]);
-            return (
-              <a
-                key={p.id}
-                href={`#${p.id}`}
-                className={cn(
-                  buttonVariants({ variant: "outline" }),
-                  "h-11 rounded-full border-line-2 bg-card px-4 text-[15px] font-semibold transition-transform hover:-translate-y-0.5 dark:border-line-2 dark:bg-card dark:hover:bg-muted",
-                  done &&
-                    "border-foreground bg-foreground text-background hover:bg-foreground/90 hover:text-background dark:border-foreground dark:bg-foreground dark:hover:bg-foreground/90"
-                )}
-              >
-                {done && <Check aria-hidden />}0{i + 1} {p.short}
-              </a>
-            );
-          })}
+        <div className="flex flex-col gap-3 sm:items-end">
+          <span className="font-mono text-[13px] text-muted-foreground">jump to a demo ↓</span>
+          <div className="flex flex-wrap justify-start gap-2.5 sm:justify-end">
+            {PROJECTS.map((p, i) => {
+              const done = Boolean(played[p.id]);
+              return (
+                <a
+                  key={p.id}
+                  href={`#${p.id}`}
+                  className={cn(
+                    buttonVariants({ variant: "outline" }),
+                    "h-11 rounded-full border-line-2 bg-card px-4 text-[15px] font-semibold transition-transform hover:-translate-y-0.5 dark:border-line-2 dark:bg-card dark:hover:bg-muted",
+                    done &&
+                      "border-foreground bg-foreground text-background hover:bg-foreground/90 hover:text-background dark:border-foreground dark:bg-foreground dark:hover:bg-foreground/90"
+                  )}
+                >
+                  {done && <Check aria-hidden />}0{i + 1} {p.short}
+                </a>
+              );
+            })}
+          </div>
         </div>
       </div>
     </section>

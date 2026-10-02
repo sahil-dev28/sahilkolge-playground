@@ -28,11 +28,11 @@ export default function Nav({ dark, onToggleMode, playedCount, total }: NavProps
         <Logo />
       </div>
       <MobileMenu dark={dark} onToggleMode={onToggleMode} playedCount={playedCount} total={total} />
-      <nav className="fixed top-3 left-1/2 z-50 hidden h-[50px] -translate-x-1/2 items-center gap-6 rounded-full border bg-glass pr-2 pl-5 whitespace-nowrap shadow-[0_10px_30px_-15px_var(--shadow)] backdrop-blur-md lg:flex">
+      <nav className="fixed top-3 left-1/2 z-50 hidden h-[54px] -translate-x-1/2 items-center gap-8 rounded-full border bg-glass pr-2.5 pl-6 whitespace-nowrap shadow-[0_10px_30px_-15px_var(--shadow)] backdrop-blur-md lg:flex">
         <Logo />
-        <div className="flex gap-[18px] text-sm">
+        <div className="flex gap-5 text-sm">
           {NAV_LINKS.map(({ id, label }) => (
-            <a key={id} href={`#${id}`} className="text-foreground hover:opacity-70">
+            <a key={id} href={`#${id}`} className="px-1 py-1.5 text-foreground hover:opacity-70">
               {label}
             </a>
           ))}
@@ -46,8 +46,8 @@ export default function Nav({ dark, onToggleMode, playedCount, total }: NavProps
           />
           <Moon className="size-4" aria-hidden />
         </div>
-        <div className="flex items-center gap-1.5">
-          <Badge className="h-[34px] rounded-full bg-foreground px-3 font-mono text-xs font-normal text-background">
+        <div className="flex items-center gap-2.5">
+          <Badge className="hidden h-[34px] rounded-full bg-foreground px-3 font-mono text-xs font-normal text-background xl:inline-flex">
             played {playedCount}/{total}
           </Badge>
           <a

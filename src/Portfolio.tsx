@@ -13,7 +13,7 @@ import Playground from "@/components/Playground";
 import Skills from "@/components/Skills";
 
 export default function Portfolio() {
-  const { mode, dark, toggleMode } = useTheme();
+  const { dark, toggleMode } = useTheme();
   const [visits, setVisits] = useState(1);
   const [played, setPlayed] = useState<Played>({});
 
@@ -37,7 +37,7 @@ export default function Portfolio() {
       <Care />
       <Skills />
       <Certs />
-      <Contact playedCount={playedCount} total={total} mode={mode} />
+      <Contact playedCount={playedCount} total={total} />
     </div>
   );
 }

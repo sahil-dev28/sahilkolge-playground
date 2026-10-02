@@ -143,6 +143,7 @@ export const CARE: CareItem[] = [
 ];
 
 export const RESUME_URL = "/sahil-kolge-resume.pdf";
+export const SOURCE_URL = "https://github.com/sahil-dev28/sahilkolge-playground";
 
 export const ABOUT: string[] = [
   "React, TypeScript and Next.js on the front, Node, Express and MongoDB behind it.",
