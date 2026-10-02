@@ -58,23 +58,6 @@ body { margin: 0; }
   font-family: "Martian Mono", monospace; font-size: 13px; line-height: 1.7; white-space: pre-wrap; word-break: break-all;
 }
 
-/* 02 pagination */
-.seg { display: flex; gap: 6px; background: var(--panel-2); padding: 4px; border-radius: 10px; }
-.seg button {
-  min-height: 36px; padding: 6px 14px; border-radius: 8px; border: 0;
-  font-family: "Martian Mono", monospace; font-size: 12px; cursor: pointer;
-  background: transparent; color: var(--panel-muted);
-}
-.seg button[aria-pressed="true"] { background: var(--mark); color: #101014; }
-.range-label { display: flex; justify-content: space-between; font-size: 13px; color: var(--panel-muted); }
-.range-label strong { color: var(--mark); font-weight: 400; }
-.app input[type="range"] { width: 100%; accent-color: var(--primary); }
-.meter-label { display: flex; justify-content: space-between; font-size: 12px; color: var(--panel-muted); }
-.meter-label span:last-child { color: var(--panel-foreground); }
-.meter { height: 14px; background: var(--panel-2); border-radius: 8px; overflow: hidden; }
-.meter div { height: 100%; border-radius: 8px; transition: width 0.3s, background 0.3s; }
-.panel-note { font-size: 14px; color: var(--panel-muted); }
-
 /* 03 HN */
 .text-input {
   font: inherit; font-size: 16px; padding: 12px 14px; border-radius: 10px;
