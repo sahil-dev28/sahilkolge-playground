@@ -125,7 +125,8 @@ Also update `data.ts`: Urban Estate `liveUrl` becomes `https://urban-estate-sk28
 - Group label in mono lowercase: `apps`, then `practice`.
 - App row (desktop): three columns — year (mono, muted) | name (semibold), one-line description,
   stack joined with ` · ` (mono, muted) | links. Rows separated by a top border.
-- Practice row: one line — year | name + stack | links. Smaller text, tighter padding.
+- Practice row: year | name, muted one-line description and stack, wrapping as needed | links.
+  Smaller text, tighter padding.
 - Links, in order, only when present: `Demo` (router `Link` to `/#p1` etc.), `Live ↗`, `Code ↗`,
   `Case study ↗`. External links open in a new tab with `rel="noreferrer"`.
 - Phone (< sm): row stacks — year and name, then description, then stack, then links.
