@@ -71,7 +71,7 @@ export const PROJECTS: Project[] = [
       "Dual role authorization through HOC route guards, keeping permissions out of UI components.",
       "Map discovery with custom Leaflet markers and useSearchParams synced filters.",
     ],
-    liveUrl: "https://urban-estate-nine.vercel.app",
+    liveUrl: "https://urban-estate-sk28.vercel.app",
     repoUrl: "https://github.com/sahil-dev28/Urban_Estate",
   },
   {
