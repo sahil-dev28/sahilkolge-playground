@@ -1,9 +1,3 @@
-import ecommerceImg from "@/assets/projects/e-commerce.webp";
-import hackerNewsImg from "@/assets/projects/hacker-news.webp";
-import philkartImg from "@/assets/projects/philkart.webp";
-import urbanEstateImg from "@/assets/projects/urban-estate.webp";
-import worksphereImg from "@/assets/projects/worksphere.webp";
-
 export type ProjectId = "p1" | "p2" | "p3" | "p4" | "p5";
 
 export interface Project {
@@ -14,7 +8,6 @@ export interface Project {
   lead: string;
   bullets: string[];
   liveUrl: string;
-  image: string;
 }
 
 export type Played = Partial<Record<ProjectId, true>>;
@@ -51,7 +44,6 @@ export const PROJECTS: Project[] = [
       "Recharts dashboard for headcount, hiring trend and active split.",
     ],
     liveUrl: "https://work-sphere-web.vercel.app",
-    image: worksphereImg,
   },
   {
     id: "p2",
@@ -66,7 +58,6 @@ export const PROJECTS: Project[] = [
       "Zod request schemas, central error middleware, shared shadcn/ui tokens with dark and light themes.",
     ],
     liveUrl: "https://philkart-web.vercel.app",
-    image: philkartImg,
   },
   {
     id: "p3",
@@ -80,7 +71,6 @@ export const PROJECTS: Project[] = [
       "Zustand actions reset the page index when filters change, so you never land on an empty page.",
     ],
     liveUrl: "https://hacker-news-clone-sahil.vercel.app",
-    image: hackerNewsImg,
   },
   {
     id: "p4",
@@ -94,7 +84,6 @@ export const PROJECTS: Project[] = [
       "Map discovery with custom Leaflet markers and useSearchParams synced filters.",
     ],
     liveUrl: "https://urban-estate-nine.vercel.app",
-    image: urbanEstateImg,
   },
   {
     id: "p5",
@@ -108,7 +97,6 @@ export const PROJECTS: Project[] = [
       "30+ reusable data hooks that keep API logic out of the UI, with skeleton loaders.",
     ],
     liveUrl: "https://e-commerce-smk-user-frontend.vercel.app",
-    image: ecommerceImg,
   },
 ];
 
