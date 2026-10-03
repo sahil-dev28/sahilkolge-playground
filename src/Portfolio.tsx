@@ -4,7 +4,6 @@ import { useTheme } from "@/hooks/use-theme";
 import { storage } from "@/lib/storage";
 import { Separator } from "@/components/ui/separator";
 import About from "@/components/About";
-import Care from "@/components/Care";
 import Certs from "@/components/Certs";
 import Contact from "@/components/Contact";
 import Hero from "@/components/Hero";
@@ -34,7 +33,6 @@ export default function Portfolio() {
       <About />
       <Separator />
       <Playground markPlayed={markPlayed} />
-      <Care />
       <Skills />
       <Certs />
       <Contact playedCount={playedCount} total={total} />

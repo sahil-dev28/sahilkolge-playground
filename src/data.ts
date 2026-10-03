@@ -8,6 +8,7 @@ export interface Project {
   lead: string;
   bullets: string[];
   liveUrl: string;
+  repoUrl: string;
 }
 
 export type Played = Partial<Record<ProjectId, true>>;
@@ -28,8 +29,6 @@ export interface Contact {
   linkedin: string;
 }
 
-export type CareItem = [title: string, text: string];
-
 export const PROJECTS: Project[] = [
   {
     id: "p1",
@@ -44,6 +43,7 @@ export const PROJECTS: Project[] = [
       "Recharts dashboard for headcount, hiring trend and active split.",
     ],
     liveUrl: "https://work-sphere-web.vercel.app",
+    repoUrl: "https://github.com/sahil-dev28/WorkSphere",
   },
   {
     id: "p2",
@@ -58,6 +58,7 @@ export const PROJECTS: Project[] = [
       "Zod request schemas, central error middleware, shared shadcn/ui tokens with dark and light themes.",
     ],
     liveUrl: "https://philkart-web.vercel.app",
+    repoUrl: "https://github.com/sahil-dev28/Philkart",
   },
   {
     id: "p3",
@@ -71,6 +72,7 @@ export const PROJECTS: Project[] = [
       "Zustand actions reset the page index when filters change, so you never land on an empty page.",
     ],
     liveUrl: "https://hacker-news-clone-sahil.vercel.app",
+    repoUrl: "https://github.com/sahil-dev28/Hacker-news-clone",
   },
   {
     id: "p4",
@@ -84,6 +86,7 @@ export const PROJECTS: Project[] = [
       "Map discovery with custom Leaflet markers and useSearchParams synced filters.",
     ],
     liveUrl: "https://urban-estate-nine.vercel.app",
+    repoUrl: "https://github.com/sahil-dev28/Urban_Estate",
   },
   {
     id: "p5",
@@ -97,6 +100,7 @@ export const PROJECTS: Project[] = [
       "30+ reusable data hooks that keep API logic out of the UI, with skeleton loaders.",
     ],
     liveUrl: "https://e-commerce-smk-user-frontend.vercel.app",
+    repoUrl: "https://github.com/sahil-dev28/E-commerce-smk-user-frontend",
   },
 ];
 
@@ -123,13 +127,6 @@ export const CONTACT: Contact = {
   linkedin: "https://linkedin.com/in/sahilkolge-dev",
 };
 
-export const CARE: CareItem[] = [
-  ["Performance", "Keyset pagination, cached server state, workers that keep the event loop free."],
-  ["State management", "Zustand, Redux Toolkit, TanStack Query and SWR, each where it fits best."],
-  ["Clean architecture", "Monorepos, shared types, guards and hooks that keep logic out of components."],
-  ["Agentic workflows", "Using AI tools like Claude Code to build smarter and ship faster."],
-];
-
 export const RESUME_URL = "/sahil-kolge-resume.pdf";
 export const SOURCE_URL = "https://github.com/sahil-dev28/sahilkolge-playground";
 
@@ -137,7 +134,8 @@ export const ABOUT: string[] = [
   "React, TypeScript and Next.js on the front, Node, Express and MongoDB behind it.",
   "Five projects live in production, each designed, built and deployed end to end, each with a live demo on this page.",
   "The most involved is Philkart: a Turborepo monorepo with keyset pagination and a worker_threads seeder that never blocks the API.",
-  "I care about clean architecture and state management, and I use agentic workflows to ship faster.",
+  "I care about performance: keyset pagination, cached server state, and workers that keep the event loop free.",
+  "I pick state tools per job (Zustand, Redux Toolkit, TanStack Query, SWR) and use Claude Code to ship faster.",
 ];
 
 export const NAV_LINKS = [

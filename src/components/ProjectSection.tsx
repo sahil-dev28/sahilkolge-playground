@@ -6,7 +6,7 @@ import { cn } from "@/lib/utils";
 
 type ProjectSectionProps = Omit<Project, "short"> & { children: ReactNode };
 
-export default function ProjectSection({ id, meta, title, lead, bullets, liveUrl, children }: ProjectSectionProps) {
+export default function ProjectSection({ id, meta, title, lead, bullets, liveUrl, repoUrl, children }: ProjectSectionProps) {
   return (
     <section
       id={id}
@@ -21,14 +21,22 @@ export default function ProjectSection({ id, meta, title, lead, bullets, liveUrl
             <li key={b}>{b}</li>
           ))}
         </ul>
-        <a
-          href={liveUrl}
-          target="_blank"
-          rel="noreferrer"
-          className={cn(buttonVariants({ variant: "link" }), "h-auto self-start p-0 text-[17px] font-semibold")}
-        >
-          Open live app <ArrowUpRight aria-hidden />
-        </a>
+        <div className="flex flex-wrap gap-x-6 gap-y-2">
+          {[
+            ["Open live app", liveUrl],
+            ["Source code", repoUrl],
+          ].map(([label, href]) => (
+            <a
+              key={label}
+              href={href}
+              target="_blank"
+              rel="noreferrer"
+              className={cn(buttonVariants({ variant: "link" }), "h-auto p-0 text-[17px] font-semibold")}
+            >
+              {label} <ArrowUpRight aria-hidden />
+            </a>
+          ))}
+        </div>
       </div>
       {children}
     </section>
