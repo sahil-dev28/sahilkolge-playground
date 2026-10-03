@@ -1,5 +1,6 @@
 import { Moon, Sun } from "lucide-react";
 import MobileMenu from "@/components/MobileMenu";
+import SectionLink from "@/components/SectionLink";
 import { Badge } from "@/components/ui/badge";
 import { buttonVariants } from "@/components/ui/button";
 import { Switch } from "@/components/ui/switch";
@@ -15,9 +16,9 @@ interface NavProps {
 
 function Logo() {
   return (
-    <a href="#top" className="text-lg font-bold tracking-tight whitespace-nowrap text-foreground hover:opacity-80">
+    <SectionLink id="top" className="text-lg font-bold tracking-tight whitespace-nowrap text-foreground hover:opacity-80">
       sahil kolge<span className="text-primary">.</span>
-    </a>
+    </SectionLink>
   );
 }
 
@@ -32,9 +33,9 @@ export default function Nav({ dark, onToggleMode, playedCount, total }: NavProps
         <Logo />
         <div className="flex gap-5 text-sm">
           {NAV_LINKS.map(({ id, label }) => (
-            <a key={id} href={`#${id}`} className="px-1 py-1.5 text-foreground hover:opacity-70">
+            <SectionLink key={id} id={id} className="px-1 py-1.5 text-foreground hover:opacity-70">
               {label}
-            </a>
+            </SectionLink>
           ))}
         </div>
         <div className="flex items-center gap-2 text-muted-foreground">

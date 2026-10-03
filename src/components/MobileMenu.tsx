@@ -1,5 +1,6 @@
 import { useRef, useState } from "react";
 import { Menu, Moon, Sun, X } from "lucide-react";
+import { useLocation, useNavigate } from "react-router";
 import { buttonVariants } from "@/components/ui/button";
 import { Sheet, SheetClose, SheetContent, SheetTitle } from "@/components/ui/sheet";
 import { Switch } from "@/components/ui/switch";
@@ -18,6 +19,9 @@ export default function MobileMenu({ dark, onToggleMode, playedCount, total }: M
   const [open, setOpen] = useState(false);
   const pending = useRef<string | null>(null);
   const active = useActiveSection(NAV_IDS);
+  const { pathname } = useLocation();
+  const navigate = useNavigate();
+  const home = pathname === "/";
 
   const goTo = (id: string) => {
     pending.current = id;
@@ -30,6 +34,10 @@ export default function MobileMenu({ dark, onToggleMode, playedCount, total }: M
     const id = pending.current;
     if (isOpen || !id) return;
     pending.current = null;
+    if (!home) {
+      navigate(`/#${id}`);
+      return;
+    }
     requestAnimationFrame(() => {
       const el = document.getElementById(id);
       if (!el) return;
@@ -74,7 +82,7 @@ export default function MobileMenu({ dark, onToggleMode, playedCount, total }: M
             {NAV_LINKS.map(({ id, label }, i) => (
               <a
                 key={id}
-                href={`#${id}`}
+                href={home ? `#${id}` : `/#${id}`}
                 aria-current={active === id ? "location" : undefined}
                 onClick={(e) => {
                   e.preventDefault();
