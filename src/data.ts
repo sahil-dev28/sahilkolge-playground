@@ -61,23 +61,9 @@ export const PROJECTS: Project[] = [
     repoUrl: "https://github.com/sahil-dev28/Philkart",
   },
   {
-    id: "p3",
-    short: "HN Clone",
-    meta: "03 · Search client · TanStack Query v5 · Zustand v5",
-    title: "Hacker News Clone",
-    lead: "Search, sort, filter and paginate Hacker News, with zero flicker between pages.",
-    bullets: [
-      "Composes Algolia query strings at runtime from tags, page, hitsPerPage, query and numericFilters.",
-      "Composite query keys for granular cache invalidation, keepPreviousData to kill pagination flicker.",
-      "Zustand actions reset the page index when filters change, so you never land on an empty page.",
-    ],
-    liveUrl: "https://hacker-news-clone-sahil.vercel.app",
-    repoUrl: "https://github.com/sahil-dev28/Hacker-news-clone",
-  },
-  {
     id: "p4",
     short: "Urban Estate",
-    meta: "04 · Real estate · React Router v7 · Leaflet · Zustand persist",
+    meta: "03 · Real estate · React Router v7 · Leaflet · Zustand persist",
     title: "Urban Estate",
     lead: "Property search where every filter lives in the URL, so any search can be shared or bookmarked.",
     bullets: [
@@ -91,7 +77,7 @@ export const PROJECTS: Project[] = [
   {
     id: "p5",
     short: "E-Commerce",
-    meta: "05 · Storefront · Razorpay · Axios · React Hook Form + Zod",
+    meta: "04 · Storefront · Razorpay · Axios · React Hook Form + Zod",
     title: "E-Commerce",
     lead: "Cart to checkout, with every API error handled in exactly one place.",
     bullets: [
@@ -101,6 +87,20 @@ export const PROJECTS: Project[] = [
     ],
     liveUrl: "https://e-commerce-smk-user-frontend.vercel.app",
     repoUrl: "https://github.com/sahil-dev28/E-commerce-smk-user-frontend",
+  },
+  {
+    id: "p3",
+    short: "HN Clone",
+    meta: "05 · Search client · TanStack Query v5 · Zustand v5",
+    title: "Hacker News Clone",
+    lead: "Search, sort, filter and paginate Hacker News, with zero flicker between pages.",
+    bullets: [
+      "Composes Algolia query strings at runtime from tags, page, hitsPerPage, query and numericFilters.",
+      "Composite query keys for granular cache invalidation, keepPreviousData to kill pagination flicker.",
+      "Zustand actions reset the page index when filters change, so you never land on an empty page.",
+    ],
+    liveUrl: "https://hacker-news-clone-sahil.vercel.app",
+    repoUrl: "https://github.com/sahil-dev28/Hacker-news-clone",
   },
 ];
 
