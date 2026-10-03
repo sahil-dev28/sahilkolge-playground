@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { ArrowRight, ArrowUpRight, Check, Copy } from "lucide-react";
-import { Link } from "react-router";
+import { Link, useLocation } from "react-router";
 import { buttonVariants } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { CONTACT, RESUME_URL, SOURCE_URL } from "@/data";
@@ -37,6 +37,7 @@ function PlayedLine({ playedCount, total }: ContactProps) {
 
 export default function Contact({ playedCount, total }: ContactProps) {
   const [copied, setCopied] = useState(false);
+  const { pathname } = useLocation();
 
   const copyEmail = async () => {
     try {
@@ -76,9 +77,11 @@ export default function Contact({ playedCount, total }: ContactProps) {
             {copied ? <Check aria-hidden /> : <Copy aria-hidden />}
             <span aria-live="polite">{copied ? "Copied" : "Copy email"}</span>
           </button>
-          <Link to="/projects" className={cn(buttonVariants({ variant: "outline", size: "lg" }), outlineButton)}>
-            All projects <ArrowRight aria-hidden />
-          </Link>
+          {pathname !== "/projects" && (
+            <Link to="/projects" className={cn(buttonVariants({ variant: "outline", size: "lg" }), outlineButton)}>
+              All projects <ArrowRight aria-hidden />
+            </Link>
+          )}
           {LINKS.map(([label, href]) => (
             <a
               key={label}

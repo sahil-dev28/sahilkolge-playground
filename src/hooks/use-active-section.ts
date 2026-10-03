@@ -1,7 +1,10 @@
 import { useEffect, useState } from "react";
+import { useLocation } from "react-router";
 
 export function useActiveSection(ids: readonly string[]) {
   const [active, setActive] = useState<string | null>(null);
+  // Sections differ per page, so re-observe after every route change.
+  const { pathname } = useLocation();
 
   useEffect(() => {
     if (typeof IntersectionObserver === "undefined") return;
@@ -19,7 +22,7 @@ export function useActiveSection(ids: readonly string[]) {
     );
     els.forEach((el) => io.observe(el));
     return () => io.disconnect();
-  }, [ids]);
+  }, [ids, pathname]);
 
   return active;
 }
