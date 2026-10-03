@@ -14,7 +14,7 @@ export default function ProjectSection({ id, meta, title, lead, bullets, liveUrl
     >
       <div className="flex flex-col gap-[18px]">
         <div className="font-mono text-xs text-muted-foreground">{meta}</div>
-        <h2 className="heading-display text-5xl sm:text-[64px]">{title}</h2>
+        <h2 className="heading-display text-[44px] sm:text-[52px]">{title}</h2>
         <p className="m-0 text-[19px] text-ink-2">{lead}</p>
         <ul className="m-0 flex list-disc flex-col gap-2 pl-5 text-base text-ink-2">
           {bullets.map((b) => (

@@ -53,8 +53,8 @@ export default function Contact({ playedCount, total }: ContactProps) {
     <section id="contact" tabIndex={-1} className="scroll-mt-20 outline-none bg-primary text-primary-foreground">
       <div className="wrap flex flex-col gap-9 pt-[110px] pb-12">
         <PlayedLine playedCount={playedCount} total={total} />
-        <h2 className="heading-display text-[clamp(56px,9vw,140px)] leading-[0.88] tracking-[-0.045em]">
-          {lead} <span className="font-serif font-normal italic">Imagine what I'd build for your team.</span>
+        <h2 className="heading-display text-[clamp(44px,6.2vw,88px)]">
+          {lead} <span className="italic">Imagine what I'd build for your team.</span>
         </h2>
         <p className="m-0 text-lg">Open to full stack roles · based in Mumbai, India</p>
         <div className="flex flex-wrap gap-3">

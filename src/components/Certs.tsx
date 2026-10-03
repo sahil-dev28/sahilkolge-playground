@@ -5,8 +5,8 @@ import { CERTS } from "@/data";
 export default function Certs() {
   return (
     <section id="certs" tabIndex={-1} className="wrap scroll-mt-20 outline-none flex flex-col gap-7 pt-14 pb-24">
-      <h2 className="heading-display text-[clamp(44px,6vw,80px)]">
-        Certified, <span className="font-serif font-normal text-primary italic">and still learning</span>
+      <h2 className="heading-display text-[clamp(40px,5vw,64px)]">
+        Certified, <span className="text-primary italic">and still learning</span>
       </h2>
       <div className="grid grid-cols-[repeat(auto-fit,minmax(min(210px,100%),1fr))] gap-3.5">
         {CERTS.map((c) => (

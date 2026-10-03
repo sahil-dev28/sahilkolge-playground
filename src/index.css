@@ -185,10 +185,10 @@
 
 @utility heading-display {
   margin: 0;
-  font-weight: 700;
-  font-stretch: 80%;
-  letter-spacing: -0.04em;
-  line-height: 0.95;
+  font-family: var(--font-serif);
+  font-weight: 400;
+  letter-spacing: -0.015em;
+  line-height: 1.02;
 }
 
 @utility hl-mark {

@@ -20,11 +20,8 @@ export default function Hero({ visits, played }: HeroProps) {
         <span className="size-[9px] rounded-full bg-live motion-safe:animate-dot" />
         <span>{greeting}</span>
       </div>
-      <h1 className="heading-display max-w-[1150px] text-[clamp(64px,9.6vw,152px)] leading-[0.88] tracking-[-0.045em] motion-safe:animate-rise motion-safe:[animation-delay:200ms]">
-        Don't read about my projects.{" "}
-        <span className="font-serif font-normal tracking-[-0.02em] text-primary italic [font-stretch:100%]">
-          Play with them.
-        </span>
+      <h1 className="heading-display max-w-[1150px] text-[clamp(48px,6.6vw,96px)] motion-safe:animate-rise motion-safe:[animation-delay:200ms]">
+        Projects you can play with, <span className="text-primary italic">not just read about.</span>
       </h1>
       <div className="grid grid-cols-[repeat(auto-fit,minmax(min(380px,100%),1fr))] items-end gap-8 motion-safe:animate-rise motion-safe:[animation-delay:350ms]">
         <div className="flex flex-col gap-6">

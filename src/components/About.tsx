@@ -57,8 +57,8 @@ export default function About() {
           className="size-[220px] rounded-full object-cover lg:size-[280px]"
         />
         <div className="flex flex-col gap-7">
-          <h2 className="heading-display text-[clamp(44px,6vw,80px)]">
-            A bit <span className="font-serif font-normal text-primary italic">about me</span>
+          <h2 className="heading-display text-[clamp(40px,5vw,64px)]">
+            A bit <span className="text-primary italic">about me</span>
           </h2>
           <div className="flex flex-col gap-2.5 text-[17px]">
             <Row icon={<User />}>Sahil Kolge</Row>

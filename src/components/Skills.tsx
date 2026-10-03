@@ -4,7 +4,7 @@ import { SKILLS } from "@/data";
 export default function Skills() {
   return (
     <section id="skills" tabIndex={-1} className="wrap scroll-mt-20 outline-none flex flex-wrap gap-10 pt-24 pb-10">
-      <h2 className="heading-display flex-[1_1_280px] text-[clamp(44px,6vw,80px)]">Toolbox</h2>
+      <h2 className="heading-display flex-[1_1_280px] text-[clamp(40px,5vw,64px)]">Toolbox</h2>
       <div className="flex min-w-0 flex-[2_1_560px] flex-col gap-7">
         {SKILLS.map((g) => (
           <div key={g.k} className="flex flex-col gap-3">

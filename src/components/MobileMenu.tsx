@@ -81,8 +81,8 @@ export default function MobileMenu({ dark, onToggleMode, playedCount, total }: M
                   goTo(id);
                 }}
                 className={cn(
-                  "heading-display text-[52px] leading-[1.05] text-foreground",
-                  active === id && "font-serif font-normal tracking-[-0.02em] text-primary italic [font-stretch:100%]"
+                  "heading-display text-[44px] leading-[1.1] text-foreground",
+                  active === id && "text-primary italic"
                 )}
               >
                 {label}
