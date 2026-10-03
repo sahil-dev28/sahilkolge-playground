@@ -141,8 +141,8 @@ export const ABOUT: string[] = [
 ];
 
 export const NAV_LINKS = [
-  { id: "work", label: "Playground" },
   { id: "about", label: "About" },
+  { id: "work", label: "Playground" },
   { id: "skills", label: "Skills" },
   { id: "certs", label: "Certifications" },
   { id: "contact", label: "Contact" },

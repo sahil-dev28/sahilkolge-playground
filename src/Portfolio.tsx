@@ -31,9 +31,9 @@ export default function Portfolio() {
     <div className="min-h-screen">
       <Nav dark={dark} onToggleMode={toggleMode} playedCount={playedCount} total={total} />
       <Hero visits={visits} played={played} />
+      <About />
       <Separator />
       <Playground markPlayed={markPlayed} />
-      <About />
       <Care />
       <Skills />
       <Certs />
