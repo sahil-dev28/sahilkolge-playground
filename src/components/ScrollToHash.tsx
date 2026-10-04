@@ -2,7 +2,7 @@ import { useEffect, useRef } from "react";
 import { useLocation, useNavigationType } from "react-router";
 
 // Handles scrolling when the route changes. Hash-only changes on the same page
-// are left to the browser and the existing nav code.
+// are left to the browser.
 export default function ScrollToHash() {
   const { pathname, hash, key } = useLocation();
   const navType = useNavigationType();

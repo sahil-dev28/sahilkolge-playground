@@ -8,7 +8,7 @@ function Row({ p }: { p: ProjectEntry }) {
   return (
     <li className={`flex flex-col gap-1 border-t border-rule ${app ? "py-5" : "py-3 text-[15px]"}`}>
       <div className="flex items-baseline justify-between gap-4">
-        <span className="font-semibold">{p.name}</span>
+        <h3 className="m-0 font-semibold">{p.name}</h3>
         <span className="font-mono text-xs text-muted">{p.year}</span>
       </div>
       <p className={`m-0 ${app ? "" : "text-muted"}`}>{p.description}</p>
@@ -40,7 +40,7 @@ export default function AllProjects() {
   return (
     <main className="page flex flex-col gap-[72px] pt-14 pb-[72px]">
       <div className="flex flex-col gap-2">
-        <h1 className="m-0 text-2xl leading-tight font-semibold min-[480px]:text-[30px]">All projects</h1>
+        <h1 className="m-0 text-2xl leading-[1.2] font-semibold min-[480px]:text-[30px]">All projects</h1>
         <p className="m-0 text-muted">
           {apps.length} apps and {practice.length} practice builds, {span}.
         </p>

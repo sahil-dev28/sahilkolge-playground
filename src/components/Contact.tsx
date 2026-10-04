@@ -1,15 +1,19 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Section from "@/components/Section";
 import { CONTACT } from "@/data";
 
 export default function Contact() {
   const [copied, setCopied] = useState(false);
+  const timer = useRef<ReturnType<typeof setTimeout>>();
+
+  useEffect(() => () => clearTimeout(timer.current), []);
 
   const copyEmail = async () => {
     try {
       await navigator.clipboard.writeText(CONTACT.email);
       setCopied(true);
-      setTimeout(() => setCopied(false), 2000);
+      clearTimeout(timer.current);
+      timer.current = setTimeout(() => setCopied(false), 2000);
     } catch {
       // Clipboard blocked; the address stays visible as a mailto link.
     }
