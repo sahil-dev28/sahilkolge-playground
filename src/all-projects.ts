@@ -1,4 +1,4 @@
-import { PROJECTS, type Project, type ProjectId } from "@/data";
+import { PROJECTS, type Project } from "@/data";
 
 export interface ProjectEntry {
   name: string;
@@ -9,7 +9,6 @@ export interface ProjectEntry {
   repoUrl: string;
   caseStudyUrl?: string;
   stack: string[];
-  demoId?: ProjectId;
 }
 
 // Featured projects reuse the home page data so the two pages can't drift.
