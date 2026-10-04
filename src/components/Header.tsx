@@ -11,13 +11,15 @@ export default function Header({ dark, onToggleMode }: HeaderProps) {
   return (
     <header className="page flex items-baseline justify-between gap-4 pt-6 text-[15px]">
       {pathname === "/" ? <span /> : <Link to="/" className="font-semibold">Sahil Kolge</Link>}
-      <nav className="flex gap-4">
+      <nav className="flex gap-1.5">
         <Link to="/projects" className="link">
           Projects
         </Link>
+        <span className="text-muted" aria-hidden>·</span>
         <a href={RESUME_URL} target="_blank" rel="noreferrer" className="link">
           Resume
         </a>
+        <span className="text-muted" aria-hidden>·</span>
         <button
           type="button"
           onClick={onToggleMode}
