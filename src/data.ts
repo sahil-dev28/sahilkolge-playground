@@ -2,20 +2,19 @@ export type ProjectId = "p1" | "p2" | "p3" | "p4" | "p5";
 
 export interface Project {
   id: ProjectId;
-  short: string;
-  meta: string;
   title: string;
-  lead: string;
-  bullets: string[];
+  year: string;
+  oneLine: string;
+  hardPart: string;
+  stack: string[];
   liveUrl: string;
   repoUrl: string;
+  caseStudyUrl?: string;
 }
 
-export type Played = Partial<Record<ProjectId, true>>;
-
-export interface SkillGroup {
-  k: string;
-  v: string[];
+export interface Skill {
+  label: string;
+  items: string[];
 }
 
 export interface Cert {
@@ -29,88 +28,75 @@ export interface Contact {
   linkedin: string;
 }
 
+export const BIO =
+  "I build web apps end to end: React and Next.js on the front, Node, Express and MongoDB behind them. Five of my projects are live in production. I care most about the parts users never see: pagination that stays fast, auth that can't be bypassed, and errors handled in one place.";
+
 export const PROJECTS: Project[] = [
   {
     id: "p1",
-    short: "WorkSphere",
-    meta: "01 · HR platform · React · Express · MongoDB · d3-org-chart",
     title: "WorkSphere",
-    lead: "An employee management system where the org chart can't be broken, because the server won't let it.",
-    bullets: [
-      "Role based access across 3 roles, enforced in Express middleware and mirrored in the UI.",
-      "JWT in httpOnly cookies, with forced password rotation on first login.",
-      "CSV bulk import of 50+ employees with per row success and failure reports.",
-      "Recharts dashboard for headcount, hiring trend and active split.",
-    ],
+    year: "2026",
+    oneLine: "An employee management system where the org chart can't be broken, because the server won't let it.",
+    hardPart:
+      "A hierarchy engine checks each record's final state, not just the fields sent: one manager per department, no cycles. Employee IDs come from an atomic counter.",
+    stack: ["Next.js", "Express", "MongoDB", "Turborepo"],
     liveUrl: "https://work-sphere-web.vercel.app",
     repoUrl: "https://github.com/sahil-dev28/WorkSphere",
+    caseStudyUrl:
+      "https://app.notion.com/p/Employee-Management-System-Full-Stack-Developer-Hiring-Assignment-3a431c4f75a080c99a59ccc25ef72987",
   },
   {
     id: "p2",
-    short: "Philkart",
-    meta: "02 · E-commerce monorepo · Turborepo · Zod · worker_threads",
     title: "Philkart",
-    lead: "A store built like it expects to get big. Type safe from database to button.",
-    bullets: [
-      "Turborepo monorepo with shared packages for end to end type safety and fail fast env validation.",
-      "Cursor based (keyset) pagination so deep pages stay fast.",
-      "A worker_threads background worker that seeds catalog data with Faker.js without blocking the API.",
-      "Zod request schemas, central error middleware, shared shadcn/ui tokens with dark and light themes.",
-    ],
+    year: "2026",
+    oneLine: "A store built like it expects to get big. Type safe from database to button.",
+    hardPart:
+      "Keyset pagination on a compound index per sort order, so page 900 costs what page 1 does. A worker_threads job seeds a catalog big enough to prove it without blocking the API.",
+    stack: ["Next.js", "Express", "MongoDB", "Zod", "Turborepo"],
     liveUrl: "https://philkart-web.vercel.app",
     repoUrl: "https://github.com/sahil-dev28/Philkart",
+    caseStudyUrl: "https://app.notion.com/p/Philkart-Assignment-Submission-38c31c4f75a080919463cffeaf4d8933",
   },
   {
     id: "p4",
-    short: "Urban Estate",
-    meta: "03 · Real estate · React Router v7 · Leaflet · Zustand persist",
     title: "Urban Estate",
-    lead: "Property search where every filter lives in the URL, so any search can be shared or bookmarked.",
-    bullets: [
-      "Auth pipeline with registration, email verification and password reset, persisted with Zustand.",
-      "Dual role authorization through HOC route guards, keeping permissions out of UI components.",
-      "Map discovery with custom Leaflet markers and useSearchParams synced filters.",
-    ],
+    year: "2026",
+    oneLine: "Property search where every filter lives in the URL, so any search can be shared or bookmarked.",
+    hardPart:
+      "Map markers follow filters stored in the URL, so a search stays shareable and back-button safe, and the list never flashes empty while paging.",
+    stack: ["React", "TanStack Query", "Zustand", "Leaflet"],
     liveUrl: "https://urban-estate-sk28.vercel.app",
     repoUrl: "https://github.com/sahil-dev28/Urban_Estate",
   },
   {
     id: "p5",
-    short: "E-Commerce",
-    meta: "04 · Storefront · Razorpay · Axios · React Hook Form + Zod",
     title: "E-Commerce",
-    lead: "Cart to checkout, with every API error handled in exactly one place.",
-    bullets: [
-      "Razorpay checkout end to end across cart, wishlist, addresses and orders.",
-      "One Axios client with interceptors for global error normalization and withCredentials auth.",
-      "30+ reusable data hooks that keep API logic out of the UI, with skeleton loaders.",
-    ],
+    year: "2026",
+    oneLine: "Cart to checkout, with every API error handled in exactly one place.",
+    hardPart:
+      "Axios interceptors handle every failure centrally, and 30+ data hooks let the storefront and admin share endpoints. Razorpay checkout across cart, wishlist and orders.",
+    stack: ["React", "Express", "Prisma", "Razorpay"],
     liveUrl: "https://e-commerce-smk-user-frontend.vercel.app",
     repoUrl: "https://github.com/sahil-dev28/E-commerce-smk-user-frontend",
   },
   {
     id: "p3",
-    short: "HN Clone",
-    meta: "05 · Search client · TanStack Query v5 · Zustand v5",
     title: "Hacker News Clone",
-    lead: "Search, sort, filter and paginate Hacker News, with zero flicker between pages.",
-    bullets: [
-      "Composes Algolia query strings at runtime from tags, page, hitsPerPage, query and numericFilters.",
-      "Composite query keys for granular cache invalidation, keepPreviousData to kill pagination flicker.",
-      "Zustand actions reset the page index when filters change, so you never land on an empty page.",
-    ],
+    year: "2025",
+    oneLine: "Search, sort, filter and paginate Hacker News, with zero flicker between pages.",
+    hardPart:
+      "Composite query keys and kept previous data stop the flicker, and changing a filter resets the page so you never land on an empty one.",
+    stack: ["React", "TanStack Query", "Zustand"],
     liveUrl: "https://hacker-news-clone-sahil.vercel.app",
     repoUrl: "https://github.com/sahil-dev28/Hacker-news-clone",
   },
 ];
 
-export const SKILLS: SkillGroup[] = [
-  { k: "core", v: ["HTML", "CSS", "JavaScript", "TypeScript", "Node.js", "MongoDB", "Agentic Coding"] },
-  {
-    k: "frameworks and libraries",
-    v: ["React.js", "Next.js", "Express.js", "Mongoose", "shadcn/ui", "Tailwind CSS", "Redux Toolkit", "TanStack Query", "SWR", "React Hook Form", "Zod", "Formik", "Yup", "Zustand"],
-  },
-  { k: "tools and platforms", v: ["Git", "GitHub", "Figma", "Claude Code"] },
+export const SKILLS: Skill[] = [
+  { label: "Frontend", items: ["React", "Next.js", "TypeScript", "Tailwind CSS", "shadcn/ui"] },
+  { label: "State and data", items: ["Redux Toolkit", "Zustand", "TanStack Query", "SWR", "React Hook Form", "Zod"] },
+  { label: "Backend", items: ["Node.js", "Express", "MongoDB", "Mongoose"] },
+  { label: "Tools", items: ["Git", "GitHub", "Figma", "Claude Code"] },
 ];
 
 export const CERTS: Cert[] = [
@@ -129,21 +115,3 @@ export const CONTACT: Contact = {
 
 export const RESUME_URL = "/sahil-kolge-resume.pdf";
 export const SOURCE_URL = "https://github.com/sahil-dev28/sahilkolge-playground";
-
-export const ABOUT: string[] = [
-  "React, TypeScript and Next.js on the front, Node, Express and MongoDB behind it.",
-  "Five projects live in production, each designed, built and deployed end to end, each with a live demo on this page.",
-  "The most involved is Philkart: a Turborepo monorepo with keyset pagination and a worker_threads seeder that never blocks the API.",
-  "I care about performance: keyset pagination, cached server state, and workers that keep the event loop free.",
-  "I pick state tools per job (Zustand, Redux Toolkit, TanStack Query, SWR) and use Claude Code to ship faster.",
-];
-
-export const NAV_LINKS = [
-  { id: "about", label: "About" },
-  { id: "work", label: "Playground" },
-  { id: "skills", label: "Skills" },
-  { id: "certs", label: "Certifications" },
-  { id: "contact", label: "Contact" },
-] as const;
-
-export const NAV_IDS = NAV_LINKS.map((l) => l.id);

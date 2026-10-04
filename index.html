@@ -4,15 +4,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sahil Kolge · Full Stack Developer</title>
-    <meta name="description" content="Sahil Kolge, full stack developer. React, Next.js and TypeScript projects you can actually play with." />
+    <meta name="description" content="Sahil Kolge, full stack developer in Mumbai. React, Next.js and Node.js projects live in production." />
     <script>
       (function () {
         try {
-          var m = localStorage.getItem("sk-mode");
-          if (m !== "dark" && m !== "light") {
-            m = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
-          }
-          if (m === "dark") document.documentElement.classList.add("dark");
+          if (localStorage.getItem("sk-mode") === "dark") document.documentElement.classList.add("dark");
         } catch (e) {}
       })();
     </script>

@@ -1,4 +1,4 @@
-import { PROJECTS, type ProjectId } from "@/data";
+import { PROJECTS, type Project, type ProjectId } from "@/data";
 
 export interface ProjectEntry {
   name: string;
@@ -13,10 +13,17 @@ export interface ProjectEntry {
 }
 
 // Featured projects reuse the home page data so the two pages can't drift.
-function featured(id: ProjectId, extra: { year: string; stack: string[]; caseStudyUrl?: string }): ProjectEntry {
-  const p = PROJECTS.find((x) => x.id === id);
-  if (!p) throw new Error(`Unknown project id ${id}`);
-  return { name: p.title, description: p.lead, liveUrl: p.liveUrl, repoUrl: p.repoUrl, group: "app", demoId: id, ...extra };
+function featured(p: Project): ProjectEntry {
+  return {
+    name: p.title,
+    description: p.oneLine,
+    year: p.year,
+    group: "app",
+    liveUrl: p.liveUrl,
+    repoUrl: p.repoUrl,
+    caseStudyUrl: p.caseStudyUrl,
+    stack: p.stack,
+  };
 }
 
 const JS_CSS = ["JavaScript", "CSS"];
@@ -27,20 +34,7 @@ function practice(name: string, description: string, liveUrl: string, repo: stri
 }
 
 export const ALL_PROJECTS: ProjectEntry[] = [
-  featured("p1", {
-    year: "2026",
-    stack: ["Node.js", "MongoDB", "React", "Next.js", "TypeScript", "Tailwind CSS"],
-    caseStudyUrl:
-      "https://app.notion.com/p/Employee-Management-System-Full-Stack-Developer-Hiring-Assignment-3a431c4f75a080c99a59ccc25ef72987",
-  }),
-  featured("p2", {
-    year: "2026",
-    stack: ["Next.js", "React", "TypeScript", "Node.js", "MongoDB", "TanStack Query", "Zod", "Tailwind CSS"],
-    caseStudyUrl: "https://app.notion.com/p/Philkart-Assignment-Submission-38c31c4f75a080919463cffeaf4d8933",
-  }),
-  featured("p4", { year: "2026", stack: ["React", "JavaScript", "TypeScript", "CSS", "Tailwind CSS"] }),
-  featured("p5", { year: "2026", stack: ["React", "JavaScript", "TypeScript", "Tailwind CSS"] }),
-  featured("p3", { year: "2025", stack: ["JavaScript", "CSS", "Tailwind CSS"] }),
+  ...PROJECTS.map(featured),
   {
     name: "Nova AI Productivity",
     description:

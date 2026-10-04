@@ -18,11 +18,5 @@ export const storage = {
 };
 
 export function initialMode(): Mode {
-  const saved = storage.get("sk-mode");
-  if (saved === "dark" || saved === "light") return saved;
-  try {
-    return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
-  } catch {
-    return "light";
-  }
+  return storage.get("sk-mode") === "dark" ? "dark" : "light";
 }
