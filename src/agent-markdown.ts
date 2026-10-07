@@ -4,10 +4,12 @@ import { ALL_PROJECTS, type ProjectEntry } from "./all-projects.ts";
 import { BIO, CERTS, CONTACT, PROJECTS, RESUME_URL, SITE_URL, SKILLS, TAGLINE, type Project } from "./data.ts";
 
 const bare = (url: string) => url.replace(/^https?:\/\//, "");
+// On-site case studies are stored as paths; agents need full URLs.
+const absolute = (url: string) => (url.startsWith("/") ? `${SITE_URL}${url}` : url);
 
 function projectBlock(p: Project): string {
   const links = [`Live: ${p.liveUrl}`, `Code: ${p.repoUrl}`];
-  if (p.caseStudyUrl) links.push(`Case study: ${p.caseStudyUrl}`);
+  if (p.caseStudyUrl) links.push(`Case study: ${absolute(p.caseStudyUrl)}`);
   return [
     `### ${p.title} (${p.year})`,
     "",
@@ -20,7 +22,7 @@ function projectBlock(p: Project): string {
 }
 
 function entryLine(p: ProjectEntry): string {
-  const caseStudy = p.caseStudyUrl ? ` · Case study: ${p.caseStudyUrl}` : "";
+  const caseStudy = p.caseStudyUrl ? ` · Case study: ${absolute(p.caseStudyUrl)}` : "";
   return `- [${p.name}](${p.liveUrl}) (${p.year}): ${p.description} Stack: ${p.stack.join(", ")}. Code: ${p.repoUrl}${caseStudy}`;
 }
 

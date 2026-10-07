@@ -1,5 +1,6 @@
 import { ALL_PROJECTS, type ProjectEntry } from "@/all-projects";
-import LinkRow, { projectLinks } from "@/components/LinkRow";
+import LinkRow from "@/components/LinkRow";
+import { projectLinks } from "@/lib/links";
 import Section from "@/components/Section";
 import { usePageTitle } from "@/hooks/use-page-title";
 

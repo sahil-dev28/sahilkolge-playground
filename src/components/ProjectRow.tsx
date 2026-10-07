@@ -1,4 +1,5 @@
-import LinkRow, { projectLinks } from "@/components/LinkRow";
+import LinkRow from "@/components/LinkRow";
+import { projectLinks } from "@/lib/links";
 import type { Project } from "@/data";
 
 export default function ProjectRow({ p }: { p: Project }) {

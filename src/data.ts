@@ -44,8 +44,7 @@ export const PROJECTS: Project[] = [
     stack: ["Next.js", "Express", "MongoDB", "Turborepo"],
     liveUrl: "https://work-sphere-web.vercel.app",
     repoUrl: "https://github.com/sahil-dev28/WorkSphere",
-    caseStudyUrl:
-      "https://app.notion.com/p/Employee-Management-System-Full-Stack-Developer-Hiring-Assignment-3a431c4f75a080c99a59ccc25ef72987",
+    caseStudyUrl: "/work/worksphere",
   },
   {
     id: "p2",

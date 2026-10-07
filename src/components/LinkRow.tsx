@@ -1,17 +1,5 @@
-export interface RowLink {
-  label: string;
-  href: string;
-  external?: boolean;
-}
-
-export function projectLinks(liveUrl: string, repoUrl: string, caseStudyUrl?: string): RowLink[] {
-  const links: RowLink[] = [
-    { label: "Live", href: liveUrl, external: true },
-    { label: "Code", href: repoUrl, external: true },
-  ];
-  if (caseStudyUrl) links.push({ label: "Case study", href: caseStudyUrl, external: true });
-  return links;
-}
+import { Link } from "react-router";
+import type { RowLink } from "@/lib/links";
 
 export default function LinkRow({ links, className = "" }: { links: RowLink[]; className?: string }) {
   return (
@@ -19,9 +7,15 @@ export default function LinkRow({ links, className = "" }: { links: RowLink[]; c
       {links.map((l, i) => (
         <span key={l.label}>
           {i > 0 && <span className="text-muted"> · </span>}
-          <a href={l.href} className="link" {...(l.external ? { target: "_blank", rel: "noreferrer" } : {})}>
-            {l.label}
-          </a>
+          {l.internal ? (
+            <Link to={l.href} className="link">
+              {l.label}
+            </Link>
+          ) : (
+            <a href={l.href} className="link" {...(l.external ? { target: "_blank", rel: "noreferrer" } : {})}>
+              {l.label}
+            </a>
+          )}
         </span>
       ))}
     </p>

@@ -35,9 +35,12 @@ test("every featured project gets one full block", () => {
 
 test("case study link only when the project has one", () => {
   const worksphere = md.slice(md.indexOf("### WorkSphere"), md.indexOf("### Philkart"));
-  assert.ok(worksphere.includes("Case study: https://app.notion.com/"));
+  assert.ok(worksphere.includes(`Case study: ${SITE_URL}/work/worksphere`));
+  const philkart = md.slice(md.indexOf("### Philkart"), md.indexOf("### Urban Estate"));
+  assert.ok(philkart.includes("Case study: https://app.notion.com/"));
   const urban = md.slice(md.indexOf("### Urban Estate"), md.indexOf("### E-Commerce"));
   assert.ok(!urban.includes("Case study"));
+  assert.ok(!/Case study: \//.test(md), "no relative case study links");
 });
 
 test("every non-featured project appears exactly once, in the right section", () => {

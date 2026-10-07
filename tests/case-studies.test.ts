@@ -45,3 +45,10 @@ test("no empty copy", () => {
     for (const h of c.hardProblems) assert.ok(h.title.trim() && h.problem.trim() && h.fix.trim(), h.title);
   }
 });
+
+test("each case study's project links to it", () => {
+  for (const c of CASE_STUDIES) {
+    const p = PROJECTS.find((x) => x.id === c.projectId);
+    assert.equal(p?.caseStudyUrl, `/work/${c.slug}`, c.slug);
+  }
+});

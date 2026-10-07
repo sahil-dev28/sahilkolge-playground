@@ -2,7 +2,8 @@ import type { ReactNode } from "react";
 import { Link, Navigate, useParams } from "react-router";
 import { getCaseStudy } from "@/case-studies";
 import type { Screen } from "@/case-studies/types";
-import LinkRow, { projectLinks } from "@/components/LinkRow";
+import LinkRow from "@/components/LinkRow";
+import { projectLinks } from "@/lib/links";
 import { PROJECTS } from "@/data";
 import { HOME_TITLE, usePageTitle } from "@/hooks/use-page-title";
 
