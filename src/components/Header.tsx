@@ -20,6 +20,10 @@ export default function Header({ dark, onToggleMode }: HeaderProps) {
           Resume
         </a>
         <span className="text-muted" aria-hidden>·</span>
+        <Link to="/agent" className="link">
+          Agent
+        </Link>
+        <span className="text-muted" aria-hidden>·</span>
         <button
           type="button"
           onClick={onToggleMode}
