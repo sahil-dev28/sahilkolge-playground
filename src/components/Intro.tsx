@@ -1,6 +1,6 @@
 import profileImg from "@/assets/profile.webp";
 import LinkRow from "@/components/LinkRow";
-import { BIO, CONTACT, RESUME_URL } from "@/data";
+import { BIO, CONTACT, RESUME_URL, TAGLINE } from "@/data";
 
 export default function Intro() {
   return (
@@ -15,7 +15,7 @@ export default function Intro() {
         />
         <div className="min-w-0">
           <h1 className="m-0 text-[22px] leading-[1.2] font-semibold min-[480px]:text-2xl">Sahil Kolge</h1>
-          <p className="m-0 text-muted">Full stack developer in Mumbai, open to roles.</p>
+          <p className="m-0 text-muted">{TAGLINE}</p>
         </div>
       </div>
       <p className="m-0">{BIO}</p>

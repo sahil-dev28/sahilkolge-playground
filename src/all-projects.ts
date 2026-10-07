@@ -1,4 +1,4 @@
-import { PROJECTS, type Project } from "@/data";
+import { PROJECTS, type Project } from "./data.ts";
 
 export interface ProjectEntry {
   name: string;

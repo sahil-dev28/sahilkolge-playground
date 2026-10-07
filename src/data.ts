@@ -31,6 +31,8 @@ export interface Contact {
 export const BIO =
   "I build web apps end to end: React and Next.js on the front, Node, Express and MongoDB behind them. Five of my projects are live in production. I care most about the parts users never see: pagination that stays fast, auth that can't be bypassed, and errors handled in one place.";
 
+export const TAGLINE = "Full stack developer in Mumbai, open to roles.";
+
 export const PROJECTS: Project[] = [
   {
     id: "p1",
@@ -115,3 +117,4 @@ export const CONTACT: Contact = {
 
 export const RESUME_URL = "/sahil-kolge-resume.pdf";
 export const SOURCE_URL = "https://github.com/sahil-dev28/sahilkolge-playground";
+export const SITE_URL = "https://sahilkolge-dev.vercel.app";
