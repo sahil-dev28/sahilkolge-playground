@@ -4,3 +4,4 @@ dist
 *.local
 .superpowers/
 .playwright-mcp/
+docs/
