@@ -17,7 +17,7 @@ In:
 
 - `/llms.txt`, a static markdown file generated at build time from `src/data.ts` and `src/all-projects.ts`.
 - `/agent`, a page that shows the same markdown with a "Copy for your LLM" button.
-- An "Agent" link in the header nav.
+- A "View as agent →" link at the end of the intro section.
 - A `<link rel="alternate" type="text/markdown">` in `index.html`.
 
 Out:
@@ -57,9 +57,9 @@ Data edits in dev need a dev-server restart to show up in `/llms.txt`. The `/age
 
 Render `<Contact />` only when `pathname !== "/agent"`, because the markdown already carries the email.
 
-### `src/components/Header.tsx`
+### `src/components/Intro.tsx` entry link
 
-The nav becomes `Projects · Resume · Agent · Dark`. "Agent" is a router `Link` to `/agent` with class `link`. It is visible at all widths.
+The header nav is unchanged. The intro's contact `LinkRow` is wrapped in a `flex flex-wrap items-baseline justify-between` row, and a router `Link` to `/agent` sits at its right end. It reads "View as agent →", in muted 15px text, and turns to the text colour on hover. On narrow screens it wraps below the links. This was the owner's call on 2026-10-07, replacing the original "Agent" nav item, and it also avoids the header overflowing at 320px.
 
 ### `src/components/AgentView.tsx`
 

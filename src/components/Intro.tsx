@@ -1,3 +1,4 @@
+import { Link } from "react-router";
 import profileImg from "@/assets/profile.webp";
 import LinkRow from "@/components/LinkRow";
 import { BIO, CONTACT, RESUME_URL, TAGLINE } from "@/data";
@@ -19,14 +20,19 @@ export default function Intro() {
         </div>
       </div>
       <p className="m-0">{BIO}</p>
-      <LinkRow
-        links={[
-          { label: "GitHub", href: CONTACT.github, external: true },
-          { label: "LinkedIn", href: CONTACT.linkedin, external: true },
-          { label: "Email", href: `mailto:${CONTACT.email}` },
-          { label: "Resume", href: RESUME_URL, external: true },
-        ]}
-      />
+      <div className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-2">
+        <LinkRow
+          links={[
+            { label: "GitHub", href: CONTACT.github, external: true },
+            { label: "LinkedIn", href: CONTACT.linkedin, external: true },
+            { label: "Email", href: `mailto:${CONTACT.email}` },
+            { label: "Resume", href: RESUME_URL, external: true },
+          ]}
+        />
+        <Link to="/agent" className="text-[15px] text-muted hover:text-text">
+          View as agent <span aria-hidden>→</span>
+        </Link>
+      </div>
     </section>
   );
 }
