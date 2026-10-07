@@ -5,18 +5,18 @@ import { BIO, CONTACT, RESUME_URL } from "@/data";
 export default function Intro() {
   return (
     <section id="about" tabIndex={-1} className="flex scroll-mt-6 flex-col gap-4 outline-none">
-      <div className="flex items-center justify-between gap-6">
-        <div className="min-w-0">
-          <h1 className="m-0 text-2xl leading-[1.2] font-semibold min-[480px]:text-[30px]">Sahil Kolge</h1>
-          <p className="m-0 text-muted">Full stack developer in Mumbai, open to roles.</p>
-        </div>
+      <div className="flex items-center gap-4">
         <img
           src={profileImg}
           alt="Sahil Kolge"
-          width={88}
-          height={88}
-          className="size-[72px] shrink-0 rounded-full object-cover min-[480px]:size-[88px]"
+          width={64}
+          height={64}
+          className="size-14 shrink-0 rounded-full object-cover min-[480px]:size-16"
         />
+        <div className="min-w-0">
+          <h1 className="m-0 text-[22px] leading-[1.2] font-semibold min-[480px]:text-2xl">Sahil Kolge</h1>
+          <p className="m-0 text-muted">Full stack developer in Mumbai, open to roles.</p>
+        </div>
       </div>
       <p className="m-0">{BIO}</p>
       <LinkRow
