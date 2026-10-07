@@ -33,7 +33,7 @@ Out:
 
 One pure function, `buildAgentMarkdown(): string`, with no React and no DOM. It reads `BIO`, `PROJECTS`, `SKILLS`, `CERTS`, `CONTACT`, `RESUME_URL`, `SITE_URL` and `ALL_PROJECTS`, and returns the markdown with a trailing newline.
 
-It must use relative imports (`./data`, `./all-projects`), because `vite.config.ts` imports it and Vite's config loader does not resolve the `@/` alias. For the same reason, `src/all-projects.ts` changes its import from `@/data` to `./data`.
+It must use relative imports with the `.ts` extension (`./data.ts`, `./all-projects.ts`). `vite.config.ts` imports it, and Vite's config loader does not resolve the `@/` alias. The extension lets Node's native TypeScript support run the unit tests without a bundler; `allowImportingTsExtensions` is already on. For the same reason, `src/all-projects.ts` changes its import from `@/data` to `./data.ts`.
 
 ### `src/data.ts`
 
@@ -68,7 +68,7 @@ Wrapped in `<main className="page ...">`, matching the spacing used by `AllProje
 1. A `Link` to `/` reading "← Human view", at 15px.
 2. A `Section` with `id="agent"` and `label="agent view"` containing:
    - A row, `flex items-baseline justify-between gap-4`, with mono text-xs muted text reading `GET /llms.txt · text/markdown`. `/llms.txt` is a plain `<a href="/llms.txt" target="_blank" rel="noreferrer" className="link">` so the browser requests the real file instead of routing it inside the app. On the right is a button reading "Copy for your LLM".
-   - A `<pre>` containing `buildAgentMarkdown()`, styled `font-mono text-[13px] leading-relaxed whitespace-pre-wrap break-words border border-rule p-4 m-0`. Wrapping avoids horizontal scroll at 375px.
+   - A `<pre>` containing `buildAgentMarkdown()`, styled `font-mono text-[13px] leading-relaxed whitespace-pre-wrap [overflow-wrap:anywhere] border border-rule p-4 m-0`. Wrapping avoids horizontal scroll at 375px.
 
 The markdown string is computed once at module scope, since it is static.
 
@@ -114,11 +114,15 @@ Personal site of Sahil Kolge (https://sahilkolge-dev.vercel.app). Everything bel
 
 ...one block per PROJECTS entry, in array order. "Case study" appears only when caseStudyUrl is set.
 
-## Other projects
+## More projects
 
-- [<name>](<liveUrl>) (<year>): <description> Code: <repoUrl>
+- [<name>](<liveUrl>) (<year>): <description> Stack: <stack joined by ", ">. Code: <repoUrl>[ · Case study: <caseStudyUrl>]
 
-...one line per ALL_PROJECTS entry with group === "practice".
+...one line per ALL_PROJECTS entry with group === "app" whose name is not a PROJECTS title (currently Nova AI Productivity and Elementum Figma Clone).
+
+## Practice builds
+
+...same line format, one per ALL_PROJECTS entry with group === "practice".
 
 ## Skills
 
@@ -142,7 +146,9 @@ Formatting rules:
 
 ## Verification
 
-The repo has no test runner, and none is added for this. Verification:
+`buildAgentMarkdown` gets unit tests in `tests/agent-markdown.test.ts`, using Node's built-in `node:test` with native TypeScript support (Node 26). No new dependencies. `package.json` gains `"test": "node --test tests/*.test.ts"`. The `tests/` folder sits outside `src`, so `tsc -b` does not type-check it.
+
+Other verification:
 
 1. `npm run build` passes, and `dist/llms.txt` exists and starts with `# Sahil Kolge`.
 2. `vite preview`, then `curl -i localhost:4173/llms.txt` returns plain text, not HTML. Its body is identical to the `<pre>` text on `/agent`, checked with Playwright `textContent` compared against the file.
@@ -158,5 +164,5 @@ The repo has no test runner, and none is added for this. Verification:
 
 ## Files touched
 
-- New: `src/agent-markdown.ts`, `src/components/AgentView.tsx`.
-- Edited: `src/data.ts` (`SITE_URL`, `TAGLINE`), `src/all-projects.ts` (relative import), `src/components/Intro.tsx` (`TAGLINE`), `src/components/Header.tsx`, `src/Layout.tsx`, `src/main.tsx`, `vite.config.ts`, `index.html`.
+- New: `src/agent-markdown.ts`, `src/components/AgentView.tsx`, `tests/agent-markdown.test.ts`.
+- Edited: `src/data.ts` (`SITE_URL`, `TAGLINE`), `src/all-projects.ts` (relative import), `src/components/Intro.tsx` (`TAGLINE`), `src/components/Header.tsx`, `src/Layout.tsx`, `src/main.tsx`, `vite.config.ts`, `index.html`, `package.json` (test script).
