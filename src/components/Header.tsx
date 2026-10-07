@@ -9,7 +9,10 @@ interface HeaderProps {
 export default function Header({ dark, onToggleMode }: HeaderProps) {
   const { pathname } = useLocation();
   return (
-    <header className="page flex items-baseline justify-between gap-4 pt-6 text-[15px]">
+    // Case studies use a wider two-column layout; keep the header aligned with it.
+    <header
+      className={`page flex items-baseline justify-between gap-4 pt-6 text-[15px] ${pathname.startsWith("/work/") ? "lg:max-w-[1040px]" : ""}`}
+    >
       {pathname === "/" ? <span /> : <Link to="/" className="font-semibold">Sahil Kolge</Link>}
       <nav className="flex gap-1.5">
         <Link to="/projects" className="link">

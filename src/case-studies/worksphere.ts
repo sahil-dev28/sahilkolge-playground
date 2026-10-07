@@ -97,5 +97,5 @@ export const worksphere: CaseStudy = {
     },
   ],
   outcome:
-    "Delivered in the one week given. Three roles, 60 employees across 7 departments, live on Vercel, Render and MongoDB Atlas. Production bugs (ID collisions, the org-chart crash, mutations that failed silently) were traced from logs and network evidence and fixed with tests first. An AI coding agent sped up the build; the architecture and every review were mine.",
+    "Delivered in the one week given. Three roles, 60 employees across 7 departments, live on Vercel, Render and MongoDB Atlas. Production bugs (ID collisions, the org-chart crash, mutations that failed silently) were traced from logs and network evidence and fixed with tests first.",
 };
