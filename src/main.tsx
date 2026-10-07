@@ -3,6 +3,7 @@ import { createRoot } from "react-dom/client";
 import { BrowserRouter, Navigate, Route, Routes } from "react-router";
 import AgentView from "./components/AgentView";
 import AllProjects from "./components/AllProjects";
+import CaseStudy from "./components/CaseStudy";
 import "./index.css";
 import Layout from "./Layout";
 import Portfolio from "./Portfolio";
@@ -15,6 +16,7 @@ createRoot(document.getElementById("root")!).render(
           <Route index element={<Portfolio />} />
           <Route path="projects" element={<AllProjects />} />
           <Route path="agent" element={<AgentView />} />
+          <Route path="work/:slug" element={<CaseStudy />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Route>
       </Routes>
