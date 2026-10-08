@@ -68,6 +68,7 @@ export const PROJECTS: Project[] = [
     stack: ["React", "TanStack Query", "Zustand", "Leaflet"],
     liveUrl: "https://urban-estate-sahilkolge-dev.vercel.app",
     repoUrl: "https://github.com/sahil-dev28/Urban_Estate",
+    caseStudyUrl: "/work/urban-estate",
   },
   {
     id: "p5",
@@ -90,6 +91,7 @@ export const PROJECTS: Project[] = [
     stack: ["React", "TanStack Query", "Zustand"],
     liveUrl: "https://hacker-news-clone-sahil.vercel.app",
     repoUrl: "https://github.com/sahil-dev28/Hacker-news-clone",
+    caseStudyUrl: "/work/hacker-news",
   },
 ];
 

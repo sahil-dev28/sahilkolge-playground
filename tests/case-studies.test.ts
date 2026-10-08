@@ -16,6 +16,11 @@ test("finds philkart by slug", () => {
   assert.equal(cs.projectId, "p2");
 });
 
+test("finds urban estate and hacker news by slug", () => {
+  assert.equal(getCaseStudy("urban-estate")?.projectId, "p4");
+  assert.equal(getCaseStudy("hacker-news")?.projectId, "p3");
+});
+
 test("unknown, wrong-case or missing slug returns undefined", () => {
   assert.equal(getCaseStudy("nope"), undefined);
   assert.equal(getCaseStudy("WorkSphere"), undefined);
@@ -61,6 +66,7 @@ test("each case study's project links to it", () => {
 
 test("next case study follows list order and wraps around", () => {
   assert.equal(getNextCaseStudy("worksphere")?.slug, "philkart");
-  assert.equal(getNextCaseStudy("philkart")?.slug, "worksphere");
+  assert.equal(getNextCaseStudy("philkart")?.slug, "urban-estate");
+  assert.equal(getNextCaseStudy("hacker-news")?.slug, "worksphere");
   assert.equal(getNextCaseStudy("nope"), undefined);
 });

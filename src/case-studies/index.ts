@@ -1,8 +1,10 @@
+import { hackerNews } from "./hacker-news.ts";
 import { philkart } from "./philkart.ts";
 import type { CaseStudy } from "./types.ts";
+import { urbanEstate } from "./urban-estate.ts";
 import { worksphere } from "./worksphere.ts";
 
-export const CASE_STUDIES: CaseStudy[] = [worksphere, philkart];
+export const CASE_STUDIES: CaseStudy[] = [worksphere, philkart, urbanEstate, hackerNews];
 
 export function getCaseStudy(slug: string | undefined): CaseStudy | undefined {
   return CASE_STUDIES.find((c) => c.slug === slug);

@@ -41,7 +41,11 @@ test("case study link only when the project has one", () => {
   const more = md.slice(md.indexOf("## More projects"), md.indexOf("## Practice builds"));
   assert.ok(more.includes("Case study: https://app.notion.com/"), "Notion case studies stay absolute");
   const urban = md.slice(md.indexOf("### Urban Estate"), md.indexOf("### E-Commerce"));
-  assert.ok(!urban.includes("Case study"));
+  assert.ok(urban.includes(`Case study: ${SITE_URL}/work/urban-estate`));
+  const ecommerce = md.slice(md.indexOf("### E-Commerce"), md.indexOf("### Hacker News"));
+  assert.ok(!ecommerce.includes("Case study"));
+  const hn = md.slice(md.indexOf("### Hacker News"), md.indexOf("## More projects"));
+  assert.ok(hn.includes(`Case study: ${SITE_URL}/work/hacker-news`));
   assert.ok(!/Case study: \//.test(md), "no relative case study links");
 });
 
