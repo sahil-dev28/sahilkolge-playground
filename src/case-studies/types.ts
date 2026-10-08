@@ -12,8 +12,8 @@ export interface Screen {
   placement: Placement;
 }
 
-// Ends in a fix, or in a trade-off when the problem was left on purpose.
-export type HardProblem = { title: string; problem: string } & ({ fix: string } | { tradeOff: string });
+// Ends in a fix, a trade-off (when the problem was left on purpose), or a fix then its trade-off.
+export type HardProblem = { title: string; problem: string } & ({ fix: string; tradeOff?: string } | { tradeOff: string });
 
 export interface CaseStudy {
   slug: string;

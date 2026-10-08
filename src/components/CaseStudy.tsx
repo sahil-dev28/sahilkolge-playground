@@ -120,10 +120,18 @@ export default function CaseStudy() {
                     <span className="text-muted">Problem: </span>
                     {h.problem}
                   </p>
-                  <p className="m-0">
-                    <span className="text-muted">{"fix" in h ? "Fix: " : "Trade off: "}</span>
-                    {"fix" in h ? h.fix : h.tradeOff}
-                  </p>
+                  {"fix" in h && (
+                    <p className="m-0">
+                      <span className="text-muted">Fix: </span>
+                      {h.fix}
+                    </p>
+                  )}
+                  {h.tradeOff && (
+                    <p className="m-0">
+                      <span className="text-muted">Trade off: </span>
+                      {h.tradeOff}
+                    </p>
+                  )}
                 </li>
               ))}
             </ol>

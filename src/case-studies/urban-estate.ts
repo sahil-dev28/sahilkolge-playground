@@ -7,8 +7,9 @@ export const urbanEstate: CaseStudy = {
   projectId: "p4",
   tags: ["Rental marketplace", "URL state", "Maps"],
   meta: [
-    { label: "role", value: "Solo frontend" },
+    { label: "role", value: "Solo frontend, on an existing REST API" },
     { label: "context", value: "Personal project" },
+    { label: "timeline", value: "1 month" },
   ],
   problem:
     "Property search lives or dies by its filters. If they sit in component state, a search can't be shared, bookmarked or undone with Back. Listings only carry a free-text address, so showing them on a map means geocoding in the browser against a free service with a strict rate limit. And paging through results shouldn't blank the list every time.",
@@ -31,7 +32,9 @@ export const urbanEstate: CaseStudy = {
     {
       title: "Geocoding without getting rate-limited",
       problem: "Listings carry free-text addresses, and Nominatim allows about one request a second.",
-      fix: "A promise queue spaces requests 1.1 seconds apart, identical lookups share one request, results (misses included) are cached in localStorage, and stale results are dropped.",
+      fix: 'A promise queue spaces requests 1.1 seconds apart. If two cards have the same address, only one request goes out. Answers are cached in localStorage, including "not found", so a bad address isn\'t retried on every visit. If you change the search before a lookup finishes, its result is ignored.',
+      tradeOff:
+        "Each visitor still geocodes in their own browser. The better fix is geocoding once on the server when a listing is saved and storing the coordinates. I kept it in the browser because the API wasn't mine to change.",
     },
     {
       title: "A list that never flashes empty",
@@ -51,7 +54,7 @@ export const urbanEstate: CaseStudy = {
     {
       src: `${dir}/02-filtered.webp`,
       alt: "Search for Mumbai, open listings only, sorted by price, with the map zoomed to the results",
-      caption: "Mumbai, open only, cheapest first: all of it in the URL",
+      caption: "Mumbai, open only, cheapest first. Copy the link and anyone gets the same results.",
       width: 1440,
       height: 900,
       placement: "middle",
@@ -74,5 +77,5 @@ export const urbanEstate: CaseStudy = {
     },
   ],
   outcome:
-    "Live on Vercel with a one-click demo login for reviewers. Tenants search, see results on a map, open a property and apply; landlords create and edit listings with photos. About 85 source files and 21 custom hooks.",
+    "Live on Vercel with a one-click demo login for reviewers. Tenants can search, see results on a map, open a property and apply. Landlords can create and edit listings with photos. Any search can be copied as a link and opens the same results, and repeat visits load map pins from cache instantly. With more time: move geocoding to the server and add tests for the URL and filter sync.",
 };
