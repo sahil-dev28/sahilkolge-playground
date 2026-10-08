@@ -84,9 +84,9 @@ export const PROJECTS: Project[] = [
     id: "p3",
     title: "Hacker News Clone",
     year: "2025",
-    oneLine: "Search, sort, filter and paginate Hacker News, with zero flicker between pages.",
+    oneLine: "Search, sort, filter and paginate every Hacker News story, from all-time popular to a custom date range.",
     hardPart:
-      "Composite query keys and kept previous data stop the flicker, and changing a filter resets the page so you never land on an empty one.",
+      "One composite query key covers sort, search, page and date window, so every view caches on its own. Changing any filter resets to page 1, so you never land on an empty page.",
     stack: ["React", "TanStack Query", "Zustand"],
     liveUrl: "https://hacker-news-clone-sahil.vercel.app",
     repoUrl: "https://github.com/sahil-dev28/Hacker-news-clone",
