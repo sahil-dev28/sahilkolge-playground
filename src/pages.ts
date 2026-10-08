@@ -1,5 +1,5 @@
 // Every route that is rendered to static HTML at build time, with its head tags.
-// Relative .ts imports so the prerender script and node --test can load it without the @/ alias.
+// Relative .ts imports so the prerender script can load it without the @/ alias.
 import { CASE_STUDIES } from "./case-studies/index.ts";
 import { PROJECTS, SITE_URL, type Project } from "./data.ts";
 import { stripBackticks } from "./lib/text.ts";

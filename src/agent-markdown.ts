@@ -1,5 +1,5 @@
 // Plain markdown version of the site for agents. Served as /llms.txt and shown on /agent.
-// Relative .ts imports so vite.config.ts and node --test can load it without the @/ alias.
+// Relative .ts imports so vite.config.ts can load it without the @/ alias.
 import { ALL_PROJECTS, type ProjectEntry } from "./all-projects.ts";
 import { BIO, CERTS, CONTACT, PROJECTS, RESUME_URL, SITE_URL, SKILLS, TAGLINE, type Project } from "./data.ts";
 

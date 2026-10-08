@@ -20,7 +20,6 @@ npm run dev
 Open http://localhost:5173
 
 ```bash
-npm test        # node --test on tests/
 npm run build   # type check, client + SSR build, prerender every page
 ```
 
@@ -46,7 +45,6 @@ src/lib/                   inline code rendering, text and link helpers, storage
 src/hooks/                 theme (saved in localStorage), page title
 scripts/prerender.ts       renders every page in PAGES to static HTML after the build
 public/work/<slug>/        case study screenshots (webp)
-tests/                     data and page checks
 ```
 
 ## Common edits
