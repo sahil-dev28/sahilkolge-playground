@@ -14,7 +14,7 @@ export const worksphere: CaseStudy = {
   problem:
     "Three roles look at the same people with different rights. If those rights live only in the UI, anyone with devtools can promote themselves. And an org chart is only as good as its data: one broken manager link and the whole tree fails to render. The task was to build an employee management system as a hiring assignment, in one week.",
   approach:
-    "Two services in one TypeScript monorepo. An Express 5 API owns every rule; a Next.js frontend renders only what the API allows. Every write is checked again on the server: the caller's role, which fields that role may edit, and whether the change keeps the reporting hierarchy valid. Shared packages hold the UI primitives and typed environment variables.",
+    "Two services in one TypeScript monorepo. An Express 5 API owns every rule; a Next.js frontend renders only what the API allows. Every write is checked again on the server: the caller's role, which fields that role may edit, and whether the record still follows the reporting rules after the change. Shared packages hold the UI primitives and typed environment variables.",
   architecture: [
     {
       label: "interface",
@@ -29,7 +29,7 @@ export const worksphere: CaseStudy = {
       items: [
         "One HR manager per department, reporting to the super admin",
         "Employees report to their department's HR manager, or the super admin when there is none",
-        "Cycle check on every manager change",
+        "Every save checks the final record against these rules, so changing only a role or department can't sneak past them",
       ],
     },
     {
@@ -37,7 +37,6 @@ export const worksphere: CaseStudy = {
       items: ["MongoDB and Mongoose", "Dashboard stats in one $facet aggregation", "Atomic counter for employee IDs", "Soft delete"],
     },
     { label: "auth", items: ["JWT in httpOnly cookies, bcrypt", "Forced password change for accounts with temporary passwords"] },
-    { label: "tests", items: ["Vitest, Supertest, mongodb-memory-server"] },
     { label: "deploy", items: ["Vercel (web), Render (API), MongoDB Atlas", "Env vars validated at boot with Zod"] },
   ],
   hardProblems: [
@@ -60,6 +59,11 @@ export const worksphere: CaseStudy = {
       title: "Express 5 made req.query read-only",
       problem: "Validation middleware that rewrote req.query with parsed values started throwing.",
       fix: "Validated query data goes through res.locals, so the middleware stays reusable.",
+    },
+    {
+      title: "An org chart that can't loop",
+      problem: "If A reports to B and B reports to A, the tree never ends and the chart can't render.",
+      fix: "The rules allow only three levels: super admin at the top, HR managers under them, employees under HR managers, and employees can never manage anyone. With those rules a loop can't form. A cycle check on every manager change stays as a second guard.",
     },
   ],
   screens: [
@@ -97,5 +101,5 @@ export const worksphere: CaseStudy = {
     },
   ],
   outcome:
-    "Delivered in the one week given. Three roles, 60 employees across 7 departments, live on Vercel, Render and MongoDB Atlas. Production bugs (ID collisions, the org-chart crash, mutations that failed silently) were traced from logs and network evidence and fixed with tests first.",
+    "Delivered in the one week given. Three roles, 60 employees across 7 departments, live on Vercel, Render and MongoDB Atlas, with a one-click demo login for each role. Bugs found after deploying (ID collisions, the org chart crash, updates that failed silently) were traced from logs and the network tab and fixed. With more time: a unique index so two people can't become HR manager of the same department at once.",
 };
