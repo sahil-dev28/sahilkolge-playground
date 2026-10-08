@@ -1,8 +1,9 @@
-import type { ReactNode } from "react";
+import { Fragment, type ReactNode } from "react";
 import { Link, Navigate, useParams } from "react-router";
 import { getCaseStudy, getNextCaseStudy } from "@/case-studies";
 import type { Screen } from "@/case-studies/types";
 import LinkRow from "@/components/LinkRow";
+import { renderInline } from "@/lib/inline-code";
 import { projectLinks } from "@/lib/links";
 import { PROJECTS } from "@/data";
 import { usePageTitle } from "@/hooks/use-page-title";
@@ -71,7 +72,7 @@ export default function CaseStudy() {
               <h1 className="m-0 text-2xl leading-[1.2] font-semibold min-[480px]:text-[30px] lg:text-2xl">{project.title}</h1>
               <span className="font-mono text-xs text-muted">{project.year}</span>
             </div>
-            <p className="m-0">{project.oneLine}</p>
+            <p className="m-0">{renderInline(project.oneLine)}</p>
             <p className="m-0 font-mono text-xs text-muted">{study.tags.join(" · ")}</p>
             <LinkRow links={projectLinks(project.liveUrl, project.repoUrl)} className="text-[15px]" />
           </header>
@@ -90,17 +91,24 @@ export default function CaseStudy() {
           {figures("hero")}
 
           <Block label="problem">
-            <p className="m-0">{study.problem}</p>
+            <p className="m-0">{renderInline(study.problem)}</p>
           </Block>
           <Block label="approach">
-            <p className="m-0">{study.approach}</p>
+            <p className="m-0">{renderInline(study.approach)}</p>
           </Block>
           <Block label="architecture">
             <dl className="m-0 flex flex-col gap-3">
               {study.architecture.map((a) => (
                 <div key={a.label}>
                   <dt className="font-mono text-[13px] text-muted">{a.label}</dt>
-                  <dd className="m-0">{a.items.join(" · ")}</dd>
+                  <dd className="m-0">
+                    {a.items.map((item, j) => (
+                      <Fragment key={item}>
+                        {j > 0 && " · "}
+                        {renderInline(item)}
+                      </Fragment>
+                    ))}
+                  </dd>
                 </div>
               ))}
             </dl>
@@ -114,22 +122,22 @@ export default function CaseStudy() {
                 <li key={h.title} className="flex flex-col gap-1">
                   <h3 className="m-0 text-[17px] font-semibold">
                     <span className="mr-3 font-mono text-[13px] font-normal text-muted">{String(i + 1).padStart(2, "0")}</span>
-                    {h.title}
+                    {renderInline(h.title)}
                   </h3>
                   <p className="m-0">
                     <span className="text-muted">Problem: </span>
-                    {h.problem}
+                    {renderInline(h.problem)}
                   </p>
                   {"fix" in h && (
                     <p className="m-0">
                       <span className="text-muted">Fix: </span>
-                      {h.fix}
+                      {renderInline(h.fix)}
                     </p>
                   )}
                   {h.tradeOff && (
                     <p className="m-0">
                       <span className="text-muted">Trade off: </span>
-                      {h.tradeOff}
+                      {renderInline(h.tradeOff)}
                     </p>
                   )}
                 </li>
@@ -140,7 +148,7 @@ export default function CaseStudy() {
           {figures("end")}
 
           <Block label="outcome">
-            <p className="m-0">{study.outcome}</p>
+            <p className="m-0">{renderInline(study.outcome)}</p>
           </Block>
 
           <nav className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-2 border-t border-rule pt-6">

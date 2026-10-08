@@ -1,4 +1,5 @@
 import LinkRow from "@/components/LinkRow";
+import { renderInline } from "@/lib/inline-code";
 import { projectLinks } from "@/lib/links";
 import type { Project } from "@/data";
 
@@ -9,8 +10,8 @@ export default function ProjectRow({ p }: { p: Project }) {
         <h3 className="m-0 text-lg font-semibold">{p.title}</h3>
         <span className="font-mono text-xs text-muted">{p.year}</span>
       </div>
-      <p className="m-0">{p.oneLine}</p>
-      <p className="m-0">{p.hardPart}</p>
+      <p className="m-0">{renderInline(p.oneLine)}</p>
+      <p className="m-0">{renderInline(p.hardPart)}</p>
       <p className="m-0 font-mono text-xs text-muted">{p.stack.join(" · ")}</p>
       <LinkRow links={projectLinks(p.liveUrl, p.repoUrl, p.caseStudyUrl)} className="text-[15px]" />
     </article>

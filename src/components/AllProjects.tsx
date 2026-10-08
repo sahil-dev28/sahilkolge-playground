@@ -1,5 +1,6 @@
 import { ALL_PROJECTS, type ProjectEntry } from "@/all-projects";
 import LinkRow from "@/components/LinkRow";
+import { renderInline } from "@/lib/inline-code";
 import { projectLinks } from "@/lib/links";
 import Section from "@/components/Section";
 import { usePageTitle } from "@/hooks/use-page-title";
@@ -13,7 +14,7 @@ function Row({ p }: { p: ProjectEntry }) {
         <h3 className="m-0 font-semibold">{p.name}</h3>
         <span className="font-mono text-xs text-muted">{p.year}</span>
       </div>
-      <p className={`m-0 ${app ? "" : "text-muted"}`}>{p.description}</p>
+      <p className={`m-0 ${app ? "" : "text-muted"}`}>{renderInline(p.description)}</p>
       <p className="m-0 font-mono text-xs text-muted">{p.stack.join(" · ")}</p>
       <LinkRow links={projectLinks(p.liveUrl, p.repoUrl, p.caseStudyUrl)} className="text-[15px]" />
     </li>

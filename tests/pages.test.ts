@@ -3,6 +3,7 @@ import { existsSync } from "node:fs";
 import { test } from "node:test";
 import { CASE_STUDIES } from "../src/case-studies/index.ts";
 import { PROJECTS, SITE_URL } from "../src/data.ts";
+import { stripBackticks } from "../src/lib/text.ts";
 import { HOME_TITLE, PAGES, headTags } from "../src/pages.ts";
 
 test("prerenders home, projects, agent and every case study", () => {
@@ -23,7 +24,7 @@ test("case studies use the project title, one-liner and an existing hero screens
     const project = PROJECTS.find((p) => p.id === cs.projectId)!;
     const page = PAGES.find((p) => p.path === `/work/${cs.slug}`)!;
     assert.equal(page.title, `${project.title} · Sahil Kolge`);
-    assert.equal(page.description, project.oneLine);
+    assert.equal(page.description, stripBackticks(project.oneLine));
     assert.ok(page.image?.startsWith(`${SITE_URL}/work/`), cs.slug);
     assert.ok(existsSync(`public${page.image!.slice(SITE_URL.length)}`), page.image);
   }

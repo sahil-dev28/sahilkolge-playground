@@ -5,6 +5,7 @@ import path from "node:path";
 import { pathToFileURL } from "node:url";
 import { CASE_STUDIES } from "../src/case-studies/index.ts";
 import { BIO, PROJECTS, TAGLINE } from "../src/data.ts";
+import { stripBackticks } from "../src/lib/text.ts";
 import { headTags, PAGES } from "../src/pages.ts";
 
 const DIST = "dist";
@@ -25,7 +26,7 @@ function expected(pathname: string): string[] {
   if (pathname === "/agent") return ["agent view", TAGLINE];
   const cs = CASE_STUDIES.find((c) => pathname === `/work/${c.slug}`)!;
   const project = PROJECTS.find((p) => p.id === cs.projectId)!;
-  return [project.title, project.oneLine, cs.problem];
+  return [project.title, project.oneLine, cs.problem].map(stripBackticks);
 }
 
 const decode = (s: string) =>
@@ -36,7 +37,8 @@ writeFileSync(path.join(DIST, "spa.html"), template);
 
 for (const page of PAGES) {
   const body = render(page.path);
-  const text = decode(body);
+  // Drop tags and React's <!-- --> text separators so copy split by <code> still matches.
+  const text = decode(body.replace(/<!-- -->|<[^>]+>/g, ""));
   const missing = expected(page.path).filter((s) => !text.includes(s));
   if (missing.length) throw new Error(`${page.path} rendered without: ${missing.join(" | ")}`);
 

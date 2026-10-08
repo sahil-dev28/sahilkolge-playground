@@ -54,7 +54,7 @@ export const PROJECTS: Project[] = [
     oneLine:
       "A product catalog that stays correct while it grows. Half a million products, no duplicates or gaps between pages.",
     hardPart:
-      "Cursor pagination on (sort field, _id) with a compound index per sort order, so new inserts can't push items between pages. A worker_threads job seeds a catalog big enough to prove it without blocking the API.",
+      "Cursor pagination on `(sort field, _id)` with a compound index per sort order, so new inserts can't push items between pages. A `worker_threads` job seeds a catalog big enough to prove it without blocking the API.",
     stack: ["Next.js", "Express", "MongoDB", "Zod", "Turborepo"],
     liveUrl: "https://philkart-web.vercel.app",
     repoUrl: "https://github.com/sahil-dev28/Philkart",

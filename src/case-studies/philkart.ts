@@ -14,7 +14,7 @@ export const philkart: CaseStudy = {
   problem:
     "A catalog that keeps growing while people browse it. The app can add hundreds of thousands of products in the background, and with plain skip-and-limit paging every insert shifts the list: you see the same product twice or miss one. The app also needs to create hundreds of thousands of products on demand, without making other requests wait. The task was a hiring assignment, due in four days.",
   approach:
-    "A Turborepo monorepo scaffolded with Better-T-Stack, so the time went into the app rather than the wiring. An Express 5 API does the heavy work on a real Node server; a Next.js frontend browses it. Products are paged by cursor over a stable (sort field, _id) order backed by compound indexes, and the server can insert products two ways, batched on the main thread or split across worker threads, so the trade-offs of heavy work in Node can be compared.",
+    "A Turborepo monorepo scaffolded with Better-T-Stack, so the time went into the app rather than the wiring. An Express 5 API does the heavy work on a real Node server; a Next.js frontend browses it. Products are paged by cursor over a stable `(sort field, _id)` order backed by compound indexes, and the server can insert products two ways, batched on the main thread or split across worker threads, so the trade-offs of heavy work in Node can be compared.",
   architecture: [
     {
       label: "interface",
@@ -25,7 +25,7 @@ export const philkart: CaseStudy = {
       ],
     },
     { label: "design", items: ["shadcn/ui in a shared package", "tweakcn tokens, light and dark"] },
-    { label: "api", items: ["Express 5 under /api/v1", "Zod validation"] },
+    { label: "api", items: ["Express 5 under `/api/v1`", "Zod validation"] },
     {
       label: "data",
       items: [
@@ -37,7 +37,7 @@ export const philkart: CaseStudy = {
     {
       label: "generation",
       items: [
-        "Batched insertMany",
+        "Batched `insertMany`",
         "Worker threads",
         "A streaming endpoint that sends products without holding them all in memory",
       ],
@@ -49,17 +49,17 @@ export const philkart: CaseStudy = {
     {
       title: "Pages that don't shift while products are added",
       problem: "Skip and limit count rows from the top, so a batch insert makes the next page repeat or skip items.",
-      fix: "Next and previous use cursor pagination on (sort field, _id), so a new insert can't push items between pages. The page number in the UI comes from counting how many products sort before the first one on screen.",
+      fix: "Next and previous use cursor pagination on `(sort field, _id)`, so a new insert can't push items between pages. The page number in the UI comes from counting how many products sort before the first one on screen.",
     },
     {
       title: "Landing on the right page after a big insert",
       problem: "Generating products while browsing leaves you on a page that now shows different items.",
-      fix: "The app remembers the first product you were looking at. After an insert, the server finds which page that product is on now and loads that page. This is the one place that uses skip, since it has to land on an exact page number.",
+      fix: "The app remembers the first product you were looking at. After an insert, the server finds which page that product is on now and loads that page. This is the one place that uses `skip`, since it has to land on an exact page number.",
     },
     {
       title: "300k products without freezing the server",
       problem: "One big insert loop blocks Node's event loop, so every other request waits.",
-      fix: "Two ways side by side. Batched insertMany awaits each batch of 1,000, so other requests get a turn between batches. Worker threads split the job across 4 threads, each with its own database connection, so the main thread only waits for them to finish.",
+      fix: "Two ways side by side. Batched `insertMany` awaits each batch of 1,000, so other requests get a turn between batches. Worker threads split the job across 4 threads, each with its own database connection, so the main thread only waits for them to finish.",
     },
     {
       title: "Page numbers aren't free",

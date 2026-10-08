@@ -32,14 +32,14 @@ export const urbanEstate: CaseStudy = {
     {
       title: "Geocoding without getting rate-limited",
       problem: "Listings carry free-text addresses, and Nominatim allows about one request a second.",
-      fix: 'A promise queue spaces requests 1.1 seconds apart. If two cards have the same address, only one request goes out. Answers are cached in localStorage, including "not found", so a bad address isn\'t retried on every visit. If you change the search before a lookup finishes, its result is ignored.',
+      fix: 'A promise queue spaces requests 1.1 seconds apart. If two cards have the same address, only one request goes out. Answers are cached in `localStorage`, including "not found", so a bad address isn\'t retried on every visit. If you change the search before a lookup finishes, its result is ignored.',
       tradeOff:
         "Each visitor still geocodes in their own browser. The better fix is geocoding once on the server when a listing is saved and storing the coordinates. I kept it in the browser because the API wasn't mine to change.",
     },
     {
       title: "A list that never flashes empty",
       problem: "Each new page would blank the grid while it loads.",
-      fix: "placeholderData: keepPreviousData keeps the old page on screen, faded, until the new one arrives. Pins and cards come from the same query, so they swap together.",
+      fix: "`placeholderData: keepPreviousData` keeps the old page on screen, faded, until the new one arrives. Pins and cards come from the same query, so they swap together.",
     },
   ],
   screens: [

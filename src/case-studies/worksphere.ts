@@ -34,31 +34,31 @@ export const worksphere: CaseStudy = {
     },
     {
       label: "data",
-      items: ["MongoDB and Mongoose", "Dashboard stats in one $facet aggregation", "Atomic counter for employee IDs", "Soft delete"],
+      items: ["MongoDB and Mongoose", "Dashboard stats in one `$facet` aggregation", "Atomic counter for employee IDs", "Soft delete"],
     },
-    { label: "auth", items: ["JWT in httpOnly cookies, bcrypt", "Forced password change for accounts with temporary passwords"] },
+    { label: "auth", items: ["JWT in `httpOnly` cookies, bcrypt", "Forced password change for accounts with temporary passwords"] },
     { label: "deploy", items: ["Vercel (web), Render (API), MongoDB Atlas", "Env vars validated at boot with Zod"] },
   ],
   hardProblems: [
     {
       title: "Employee IDs that don't collide",
       problem: "\"Highest ID plus one\" sorts as text, so it breaks at EMP-10000, and two requests at once can get the same ID.",
-      fix: "An atomic counter document (findOneAndUpdate with $inc), plus a one-time backfill for existing records.",
+      fix: "An atomic counter document (`findOneAndUpdate` with `$inc`), plus a one-time backfill for existing records.",
     },
     {
       title: "Logged in across two domains",
       problem: "The frontend is on Vercel and the API on Render, so the browser won't send the session cookie cross-site.",
-      fix: "The Next.js server reads its own httpOnly cookie and forwards it as a header on API calls, server to server.",
+      fix: "The Next.js server reads its own `httpOnly` cookie and forwards it as a header on API calls, server to server.",
     },
     {
       title: "An org chart that survives bad data",
-      problem: "A deleted manager left dangling reportingManager references, and one bad record crashed the whole chart.",
+      problem: "A deleted manager left dangling `reportingManager` references, and one bad record crashed the whole chart.",
       fix: "Orphaned records fall back to the real root. Deleting a manager reassigns their reports to the super admin, and the super admin can't be deleted.",
     },
     {
-      title: "Express 5 made req.query read-only",
-      problem: "Validation middleware that rewrote req.query with parsed values started throwing.",
-      fix: "Validated query data goes through res.locals, so the middleware stays reusable.",
+      title: "Express 5 made `req.query` read-only",
+      problem: "Validation middleware that rewrote `req.query` with parsed values started throwing.",
+      fix: "Validated query data goes through `res.locals`, so the middleware stays reusable.",
     },
     {
       title: "An org chart that can't loop",

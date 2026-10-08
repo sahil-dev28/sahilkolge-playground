@@ -2,6 +2,7 @@
 // Relative .ts imports so the prerender script and node --test can load it without the @/ alias.
 import { CASE_STUDIES } from "./case-studies/index.ts";
 import { PROJECTS, SITE_URL, type Project } from "./data.ts";
+import { stripBackticks } from "./lib/text.ts";
 
 export const HOME_TITLE = "Sahil Kolge · Full Stack Developer";
 export const PROJECTS_TITLE = "All projects · Sahil Kolge";
@@ -42,7 +43,7 @@ export const PAGES: Page[] = [
     return {
       path: `/work/${cs.slug}`,
       title: caseStudyTitle(project),
-      description: project.oneLine,
+      description: stripBackticks(project.oneLine),
       image: hero && `${SITE_URL}${hero.src}`,
     };
   }),

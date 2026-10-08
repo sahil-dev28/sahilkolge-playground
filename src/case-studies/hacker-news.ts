@@ -17,7 +17,7 @@ export const hackerNews: CaseStudy = {
   architecture: [
     { label: "interface", items: ["React 19 and Vite", "Tailwind", "react-day-picker for custom ranges, react-paginate"] },
     { label: "state", items: ["Zustand for sort, search, page and date window", "TanStack Query for results"] },
-    { label: "api", items: ["HN Algolia search and search_by_date", "Numeric filters on created_at_i"] },
+    { label: "api", items: ["HN Algolia `search` and `search_by_date`", "Numeric filters on `created_at_i`"] },
   ],
   hardProblems: [
     {
@@ -38,7 +38,7 @@ export const hackerNews: CaseStudy = {
     {
       title: "Time windows the API understands",
       problem: "Algolia filters by Unix timestamp, while people think in \"last week\" or a calendar range.",
-      fix: "Last 24 hours, week, month and year, or a custom calendar range with future dates disabled, are all turned into created_at_i numeric filters.",
+      fix: "Last 24 hours, week, month and year, or a custom calendar range with future dates disabled, are all turned into `created_at_i` numeric filters.",
     },
   ],
   screens: [
