@@ -1,6 +1,6 @@
 import type { ReactNode } from "react";
 import { Link, Navigate, useParams } from "react-router";
-import { getCaseStudy } from "@/case-studies";
+import { getCaseStudy, getNextCaseStudy } from "@/case-studies";
 import type { Screen } from "@/case-studies/types";
 import LinkRow from "@/components/LinkRow";
 import { projectLinks } from "@/lib/links";
@@ -55,6 +55,8 @@ export default function CaseStudy() {
   const figures = (placement: Screen["placement"]) =>
     study.screens.map((s, i) => (s.placement === placement ? <Figure key={s.src} s={s} n={i + 1} /> : null));
   const meta = [...study.meta, { label: "stack", value: project.stack.join(" · ") }];
+  const next = getNextCaseStudy(study.slug);
+  const nextTitle = next && PROJECTS.find((p) => p.id === next.projectId)?.title;
 
   return (
     <main className="mx-auto flex max-w-[640px] flex-col gap-10 px-6 pt-14 pb-[72px] lg:max-w-[1040px]">
@@ -132,7 +134,14 @@ export default function CaseStudy() {
             <p className="m-0">{study.outcome}</p>
           </Block>
 
-          {back}
+          <nav className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-2 border-t border-rule pt-6">
+            {back}
+            {next && nextTitle && (
+              <Link to={`/work/${next.slug}`} className="link text-[15px]">
+                Next: {nextTitle} →
+              </Link>
+            )}
+          </nav>
         </div>
       </div>
     </main>

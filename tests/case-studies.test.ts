@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import { existsSync } from "node:fs";
 import { test } from "node:test";
-import { CASE_STUDIES, getCaseStudy } from "../src/case-studies/index.ts";
+import { CASE_STUDIES, getCaseStudy, getNextCaseStudy } from "../src/case-studies/index.ts";
 import { PROJECTS } from "../src/data.ts";
 
 test("finds worksphere by slug", () => {
@@ -57,4 +57,10 @@ test("each case study's project links to it", () => {
     const p = PROJECTS.find((x) => x.id === c.projectId);
     assert.equal(p?.caseStudyUrl, `/work/${c.slug}`, c.slug);
   }
+});
+
+test("next case study follows list order and wraps around", () => {
+  assert.equal(getNextCaseStudy("worksphere")?.slug, "philkart");
+  assert.equal(getNextCaseStudy("philkart")?.slug, "worksphere");
+  assert.equal(getNextCaseStudy("nope"), undefined);
 });
