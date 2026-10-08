@@ -5,7 +5,7 @@ const dir = "/work/hacker-news";
 export const hackerNews: CaseStudy = {
   slug: "hacker-news",
   projectId: "p3",
-  tags: ["News search", "Server state", "Debounced input"],
+  tags: ["News search", "Query caching", "Time window filters"],
   meta: [
     { label: "role", value: "Solo frontend" },
     { label: "context", value: "Personal project" },
@@ -13,7 +13,7 @@ export const hackerNews: CaseStudy = {
   problem:
     "Hacker News has years of stories but no way to browse them by popularity within a time window. Algolia's HN API can, but only if the client keeps sort, search, date range and page in step: change one and the others must follow, or you end up asking for page 40 of a search with three results.",
   approach:
-    "Every control writes to one Zustand store, and every action that changes what you're looking at also resets the page. TanStack Query keys on the whole set (sort, search, page, page size and date window), so each combination is fetched and cached once. The search box is debounced, so typing doesn't fire a request per key.",
+    "Every control writes to one Zustand store, and every action that changes what you're looking at also resets the page. TanStack Query keys on the whole set (sort, search, page, page size and date window), so each combination caches on its own. The search box is debounced, so typing doesn't fire a request per key.",
   architecture: [
     { label: "interface", items: ["React 19 and Vite", "Tailwind", "react-day-picker for custom ranges, react-paginate"] },
     { label: "state", items: ["Zustand for sort, search, page and date window", "TanStack Query for results"] },
@@ -28,12 +28,12 @@ export const hackerNews: CaseStudy = {
     {
       title: "One cache entry per view",
       problem: "Sort, search, page and date window all change the request, and a key that misses one serves the wrong results.",
-      fix: "A single composite query key holds all of them, so each combination caches on its own and revisiting a view is instant.",
+      fix: "One query key with every parameter, so each view caches separately and going back to a page or search you just saw comes from cache.",
     },
     {
       title: "Search without a request per keystroke",
       problem: "Typing a query would fire a request on every key.",
-      fix: "A small hand-written debounce with cancel waits one second, and is cleaned up when the input unmounts.",
+      fix: "A small debounce I wrote myself waits until you stop typing, and cancels the pending call if the component unmounts, so a late request can't update a screen that's gone.",
     },
     {
       title: "Time windows the API understands",
@@ -76,5 +76,5 @@ export const hackerNews: CaseStudy = {
     },
   ],
   outcome:
-    "Live on Vercel. Browse every Hacker News story by popularity or date, narrowed to the last day, week, month, year or a custom range, with search and paging that stay in step.",
+    "Live on Vercel. Browse Hacker News by popularity or date, for the last day, week, month, year or any custom range, with search and paging that stay in sync. This was one of my earlier projects. In Urban Estate I went further and moved all search state into the URL, so a search survives a refresh and can be shared.",
 };
