@@ -1,4 +1,4 @@
 {
   "cleanUrls": true,
-  "rewrites": [{ "source": "/(.*)", "destination": "/spa.html" }]
+  "rewrites": [{ "source": "/(.*)", "destination": "/spa" }]
 }
