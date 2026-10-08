@@ -7,7 +7,7 @@ export const urbanEstate: CaseStudy = {
   projectId: "p4",
   tags: ["Rental marketplace", "URL state", "Maps"],
   meta: [
-    { label: "role", value: "Solo frontend, on an existing REST API" },
+    { label: "built", value: "Frontend, on an existing REST API" },
     { label: "context", value: "Personal project" },
     { label: "timeline", value: "1 month" },
   ],

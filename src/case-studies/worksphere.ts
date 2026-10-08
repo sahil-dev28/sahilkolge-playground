@@ -7,7 +7,7 @@ export const worksphere: CaseStudy = {
   projectId: "p1",
   tags: ["HR software", "RBAC", "Monorepo"],
   meta: [
-    { label: "role", value: "Solo full stack" },
+    { label: "built", value: "API, frontend and deploy" },
     { label: "context", value: "Hiring assignment" },
     { label: "timeline", value: "1 week" },
   ],

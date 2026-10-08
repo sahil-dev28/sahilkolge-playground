@@ -7,7 +7,7 @@ export const philkart: CaseStudy = {
   projectId: "p2",
   tags: ["E-commerce catalog", "Cursor pagination", "Worker threads"],
   meta: [
-    { label: "role", value: "Solo full stack" },
+    { label: "built", value: "API, frontend and deploy" },
     { label: "context", value: "Hiring assignment" },
     { label: "timeline", value: "4 days" },
   ],

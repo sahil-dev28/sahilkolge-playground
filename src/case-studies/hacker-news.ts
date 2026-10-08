@@ -7,7 +7,7 @@ export const hackerNews: CaseStudy = {
   projectId: "p3",
   tags: ["News search", "Query caching", "Time window filters"],
   meta: [
-    { label: "role", value: "Solo frontend" },
+    { label: "built", value: "Frontend, on the public Algolia HN API" },
     { label: "context", value: "Personal project" },
   ],
   problem:
