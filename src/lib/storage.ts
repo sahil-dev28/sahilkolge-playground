@@ -16,7 +16,3 @@ export const storage = {
     }
   },
 };
-
-export function initialMode(): Mode {
-  return storage.get("sk-mode") === "dark" ? "dark" : "light";
-}

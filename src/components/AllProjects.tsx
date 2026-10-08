@@ -3,6 +3,7 @@ import LinkRow from "@/components/LinkRow";
 import { projectLinks } from "@/lib/links";
 import Section from "@/components/Section";
 import { usePageTitle } from "@/hooks/use-page-title";
+import { PROJECTS_TITLE } from "@/pages";
 
 function Row({ p }: { p: ProjectEntry }) {
   const app = p.group === "app";
@@ -32,7 +33,7 @@ function Group({ id, label, items }: { id: string; label: string; items: Project
 }
 
 export default function AllProjects() {
-  usePageTitle("All projects · Sahil Kolge");
+  usePageTitle(PROJECTS_TITLE);
   const apps = ALL_PROJECTS.filter((p) => p.group === "app");
   const practice = ALL_PROJECTS.filter((p) => p.group === "practice");
   const years = ALL_PROJECTS.map((p) => p.year).sort();

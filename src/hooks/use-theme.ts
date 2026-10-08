@@ -1,17 +1,20 @@
 import { useEffect, useState } from "react";
-import { initialMode, storage, type Mode } from "@/lib/storage";
+import { storage, type Mode } from "@/lib/storage";
 
 export function useTheme() {
-  const [mode, setMode] = useState<Mode>(initialMode);
+  // Built HTML is always rendered light, so start light to match it. The inline
+  // script in index.html has already set the real class on <html> before paint.
+  const [mode, setMode] = useState<Mode>("light");
   const dark = mode === "dark";
 
   useEffect(() => {
-    document.documentElement.classList.toggle("dark", dark);
-  }, [dark]);
+    if (document.documentElement.classList.contains("dark")) setMode("dark");
+  }, []);
 
   const toggleMode = () => {
     const next: Mode = dark ? "light" : "dark";
     storage.set("sk-mode", next);
+    document.documentElement.classList.toggle("dark", next === "dark");
     setMode(next);
   };
 

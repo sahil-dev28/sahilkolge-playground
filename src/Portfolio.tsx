@@ -4,7 +4,8 @@ import Intro from "@/components/Intro";
 import ProjectRow from "@/components/ProjectRow";
 import Section from "@/components/Section";
 import { CERTS, PROJECTS, SKILLS } from "@/data";
-import { HOME_TITLE, usePageTitle } from "@/hooks/use-page-title";
+import { usePageTitle } from "@/hooks/use-page-title";
+import { HOME_TITLE } from "@/pages";
 
 export default function Portfolio() {
   usePageTitle(HOME_TITLE);

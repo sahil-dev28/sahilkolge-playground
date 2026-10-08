@@ -3,11 +3,12 @@ import { Link } from "react-router";
 import { buildAgentMarkdown } from "@/agent-markdown";
 import Section from "@/components/Section";
 import { usePageTitle } from "@/hooks/use-page-title";
+import { AGENT_TITLE } from "@/pages";
 
 const MARKDOWN = buildAgentMarkdown();
 
 export default function AgentView() {
-  usePageTitle("Agent view · Sahil Kolge");
+  usePageTitle(AGENT_TITLE);
   const [copied, setCopied] = useState(false);
   const timer = useRef<ReturnType<typeof setTimeout>>();
 

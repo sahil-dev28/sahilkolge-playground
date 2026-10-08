@@ -5,7 +5,8 @@ import type { Screen } from "@/case-studies/types";
 import LinkRow from "@/components/LinkRow";
 import { projectLinks } from "@/lib/links";
 import { PROJECTS } from "@/data";
-import { HOME_TITLE, usePageTitle } from "@/hooks/use-page-title";
+import { usePageTitle } from "@/hooks/use-page-title";
+import { caseStudyTitle, HOME_TITLE } from "@/pages";
 
 function Block({ label, children }: { label: string; children: ReactNode }) {
   return (
@@ -48,7 +49,7 @@ export default function CaseStudy() {
   const { slug } = useParams();
   const study = getCaseStudy(slug);
   const project = study && PROJECTS.find((p) => p.id === study.projectId);
-  usePageTitle(project ? `${project.title} · Sahil Kolge` : HOME_TITLE);
+  usePageTitle(project ? caseStudyTitle(project) : HOME_TITLE);
 
   if (!study || !project) return <Navigate to="/" replace />;
 
