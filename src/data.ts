@@ -56,7 +56,7 @@ export const PROJECTS: Project[] = [
     stack: ["Next.js", "Express", "MongoDB", "Zod", "Turborepo"],
     liveUrl: "https://philkart-web.vercel.app",
     repoUrl: "https://github.com/sahil-dev28/Philkart",
-    caseStudyUrl: "https://app.notion.com/p/Philkart-Assignment-Submission-38c31c4f75a080919463cffeaf4d8933",
+    caseStudyUrl: "/work/philkart",
   },
   {
     id: "p4",

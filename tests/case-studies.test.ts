@@ -10,6 +10,12 @@ test("finds worksphere by slug", () => {
   assert.equal(cs.projectId, "p1");
 });
 
+test("finds philkart by slug", () => {
+  const cs = getCaseStudy("philkart");
+  assert.ok(cs);
+  assert.equal(cs.projectId, "p2");
+});
+
 test("unknown, wrong-case or missing slug returns undefined", () => {
   assert.equal(getCaseStudy("nope"), undefined);
   assert.equal(getCaseStudy("WorkSphere"), undefined);
