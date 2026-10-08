@@ -77,5 +77,5 @@ export const urbanEstate: CaseStudy = {
     },
   ],
   outcome:
-    "Live on Vercel with a one-click demo login for reviewers. Tenants can search, see results on a map, open a property and apply. Landlords can create and edit listings with photos. Any search can be copied as a link and opens the same results, and repeat visits load map pins from cache instantly. With more time: move geocoding to the server and add tests for the URL and filter sync.",
+    "Live on Vercel with a one-click demo login for reviewers. Tenants can search, see results on a map, open a property and apply. Landlords can create and edit listings with photos. Any search can be copied as a link and opens the same results, and repeat visits load map pins from cache instantly. Built while learning frontend; the first UI was rough, and I reworked it as I learned. With more time: move geocoding to the server and add tests for the URL and filter sync.",
 };
