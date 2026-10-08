@@ -1,12 +1,14 @@
-# Sahil Kolge · Playground
+# Sahil Kolge · Portfolio
 
-A React + TypeScript portfolio built with Tailwind CSS and shadcn/ui, where every project has a small
-live demo of the hardest problem solved in it. It uses a grape colour theme with dark and light mode,
-and the mode choice is saved in localStorage.
+Personal portfolio of Sahil Kolge, full stack developer. A React + TypeScript site with a case study
+for each featured project, a list of every project, and a plain markdown view for agents. Every page
+is rendered to static HTML at build time.
+
+Live: https://sahilkolge-dev.vercel.app
 
 ## Tech
 
-React · TypeScript · Vite · Tailwind CSS v4 · shadcn/ui (Base UI) · lucide-react
+React · TypeScript · Vite · React Router · Tailwind CSS v4 · Fontsource (Source Serif 4, JetBrains Mono)
 
 ## Run it
 
@@ -17,33 +19,45 @@ npm run dev
 
 Open http://localhost:5173
 
+```bash
+npm test        # node --test on tests/
+npm run build   # type check, client + SSR build, prerender every page
+```
+
+## Pages
+
+```
+/              home: intro, featured projects, contact
+/projects      every app and practice build
+/work/:slug    case study for a featured project
+/agent         the whole site as plain markdown (also served as /llms.txt)
+```
+
 ## Files
 
 ```
-src/main.tsx               React entry, imports index.css
-src/index.css              Tailwind + shadcn imports, grape theme tokens (light and dark), fonts, keyframes
-src/Portfolio.tsx          root: visits and played state, composes the sections
-src/data.ts                typed projects, skills, certificates, contact, "care" items
-src/hooks/use-theme.ts     dark/light mode, saved in localStorage
-src/lib/                   storage helper, cn() class helper
-src/components/ui/         shadcn/ui components (generated with the shadcn CLI)
-src/components/            Nav, Hero, Playground, ProjectSection, Care, Skills, Certs, Contact
-src/demos/                 one file per live demo, plus DemoCard and CodeBlock
+src/data.ts                bio, featured projects, skills, certificates, contact, site URLs
+src/case-studies/          one file per case study, registered in index.ts
+src/all-projects.ts        full project list for /projects
+src/agent-markdown.ts      builds the markdown for /agent and /llms.txt
+src/pages.ts               prerendered routes and their head tags
+src/components/            Header, Intro, ProjectRow, CaseStudy, AllProjects, AgentView, Contact, Footer
+src/lib/                   inline code rendering, text and link helpers, storage
+src/hooks/                 theme (saved in localStorage), page title
+scripts/prerender.ts       renders every page in PAGES to static HTML after the build
+public/work/<slug>/        case study screenshots (webp)
+tests/                     data and page checks
 ```
 
 ## Common edits
 
 - Resume: replace `public/sahil-kolge-resume.pdf` (same file name)
-- Projects, skills, certificates, contact: `src/data.ts`
-- Add a project: add an entry to `PROJECTS` in `data.ts` (and its id to `ProjectId`), create its demo
-  in `src/demos/`, and register it in the `DEMOS` map in `components/Playground.tsx`
+- Bio, projects, skills, certificates, contact: `src/data.ts`
+- Wrap code terms in backticks in copy to render them in mono
+- Add a case study: create `src/case-studies/<slug>.ts`, add it to `CASE_STUDIES` in
+  `src/case-studies/index.ts`, and put its screenshots in `public/work/<slug>/`
 - Colours: CSS variables in `:root` (light) and `.dark` (dark) in `src/index.css`
-- Add a shadcn component: `npx shadcn@latest add <name>`
 
 ## Deploy
 
-```bash
-npm run build
-```
-
-Push to GitHub and import the repo on Vercel. Framework preset: Vite.
+Hosted on Vercel (framework preset: Vite). Pushing to `main` deploys.
