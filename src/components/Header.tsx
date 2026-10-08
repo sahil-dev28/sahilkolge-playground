@@ -15,11 +15,11 @@ export default function Header({ dark, onToggleMode }: HeaderProps) {
     >
       {pathname === "/" ? <span /> : <Link to="/" className="font-semibold">Sahil Kolge</Link>}
       <nav className="flex gap-1.5">
-        <Link to="/projects" className="link">
+        <Link to="/projects" className="text-muted hover:text-text">
           Projects
         </Link>
         <span className="text-muted" aria-hidden>·</span>
-        <a href={RESUME_URL} target="_blank" rel="noreferrer" className="link">
+        <a href={RESUME_URL} target="_blank" rel="noreferrer" className="text-muted hover:text-text">
           Resume
         </a>
         <span className="text-muted" aria-hidden>·</span>
@@ -27,7 +27,7 @@ export default function Header({ dark, onToggleMode }: HeaderProps) {
           type="button"
           onClick={onToggleMode}
           aria-label={dark ? "Switch to light mode" : "Switch to dark mode"}
-          className="link"
+          className="text-muted hover:text-text"
         >
           {dark ? "Light" : "Dark"}
         </button>
