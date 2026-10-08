@@ -29,7 +29,7 @@ export interface Contact {
 }
 
 export const BIO =
-  "I build web apps end to end: React and Next.js on the front, Node, Express and MongoDB behind them. Five of my projects are live in production. I care most about the parts users never see: pagination that stays fast, auth that can't be bypassed, and errors handled in one place.";
+  "I build and deploy web apps end to end, with React and Next.js on the front and Node, Express and MongoDB behind them. I keep important rules on the server, design data so it stays fast as it grows, and think about what happens when two requests hit at the same time. I use AI agents daily to work faster, while I own the plan, the review and the result.";
 
 export const TAGLINE = "Full stack developer in Mumbai, open to roles.";
 
@@ -38,7 +38,8 @@ export const PROJECTS: Project[] = [
     id: "p1",
     title: "WorkSphere",
     year: "2026",
-    oneLine: "An employee management system where the org chart can't be broken, because the server won't let it.",
+    oneLine:
+      "An employee management system where the org chart can't be broken, because the server won't let it.",
     hardPart:
       "A hierarchy engine checks each record's final state, not just the fields sent: one manager per department, no cycles. Employee IDs come from an atomic counter.",
     stack: ["Next.js", "Express", "MongoDB", "Turborepo"],
@@ -50,7 +51,8 @@ export const PROJECTS: Project[] = [
     id: "p2",
     title: "Philkart",
     year: "2026",
-    oneLine: "A product catalog that stays correct while it grows. Half a million products, no duplicates or gaps between pages.",
+    oneLine:
+      "A product catalog that stays correct while it grows. Half a million products, no duplicates or gaps between pages.",
     hardPart:
       "Cursor pagination on (sort field, _id) with a compound index per sort order, so new inserts can't push items between pages. A worker_threads job seeds a catalog big enough to prove it without blocking the API.",
     stack: ["Next.js", "Express", "MongoDB", "Zod", "Turborepo"],
@@ -62,7 +64,8 @@ export const PROJECTS: Project[] = [
     id: "p4",
     title: "Urban Estate",
     year: "2026",
-    oneLine: "Property search where every filter lives in the URL, so any search can be shared or bookmarked.",
+    oneLine:
+      "Property search where every filter lives in the URL, so any search can be shared or bookmarked.",
     hardPart:
       "Map markers follow filters stored in the URL, so a search stays shareable and back-button safe, and the list never flashes empty while paging.",
     stack: ["React", "TanStack Query", "Zustand", "Leaflet"],
@@ -74,7 +77,8 @@ export const PROJECTS: Project[] = [
     id: "p5",
     title: "E-Commerce",
     year: "2026",
-    oneLine: "Cart to checkout, with every API error handled in exactly one place.",
+    oneLine:
+      "Cart to checkout, with every API error handled in exactly one place.",
     hardPart:
       "Axios interceptors handle every failure centrally, and 30+ data hooks let the storefront and admin share endpoints. Razorpay checkout across cart, wishlist and orders.",
     stack: ["React", "Express", "Prisma", "Razorpay"],
@@ -85,7 +89,8 @@ export const PROJECTS: Project[] = [
     id: "p3",
     title: "Hacker News Clone",
     year: "2025",
-    oneLine: "Search, sort, filter and paginate every Hacker News story, from all-time popular to a custom date range.",
+    oneLine:
+      "Search, sort, filter and paginate every Hacker News story, from all-time popular to a custom date range.",
     hardPart:
       "One composite query key covers sort, search, page and date window, so every view caches on its own. Changing any filter resets to page 1, so you never land on an empty page.",
     stack: ["React", "TanStack Query", "Zustand"],
@@ -96,8 +101,21 @@ export const PROJECTS: Project[] = [
 ];
 
 export const SKILLS: Skill[] = [
-  { label: "Frontend", items: ["React", "Next.js", "TypeScript", "Tailwind CSS", "shadcn/ui"] },
-  { label: "State and data", items: ["Redux Toolkit", "Zustand", "TanStack Query", "SWR", "React Hook Form", "Zod"] },
+  {
+    label: "Frontend",
+    items: ["React", "Next.js", "TypeScript", "Tailwind CSS", "shadcn/ui"],
+  },
+  {
+    label: "State and data",
+    items: [
+      "Redux Toolkit",
+      "Zustand",
+      "TanStack Query",
+      "SWR",
+      "React Hook Form",
+      "Zod",
+    ],
+  },
   { label: "Backend", items: ["Node.js", "Express", "MongoDB", "Mongoose"] },
   { label: "Tools", items: ["Git", "GitHub", "Figma", "Claude Code"] },
 ];
@@ -117,5 +135,6 @@ export const CONTACT: Contact = {
 };
 
 export const RESUME_URL = "/sahil-kolge-resume.pdf";
-export const SOURCE_URL = "https://github.com/sahil-dev28/sahilkolge-playground";
+export const SOURCE_URL =
+  "https://github.com/sahil-dev28/sahilkolge-playground";
 export const SITE_URL = "https://sahilkolge-dev.vercel.app";
