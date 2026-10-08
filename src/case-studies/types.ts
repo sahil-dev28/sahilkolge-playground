@@ -12,6 +12,9 @@ export interface Screen {
   placement: Placement;
 }
 
+// Ends in a fix, or in a trade-off when the problem was left on purpose.
+export type HardProblem = { title: string; problem: string } & ({ fix: string } | { tradeOff: string });
+
 export interface CaseStudy {
   slug: string;
   // Title, year, tagline, stack and links come from this PROJECTS entry.
@@ -21,7 +24,7 @@ export interface CaseStudy {
   problem: string;
   approach: string;
   architecture: { label: string; items: string[] }[];
-  hardProblems: { title: string; problem: string; fix: string }[];
+  hardProblems: HardProblem[];
   screens: Screen[];
   outcome: string;
 }

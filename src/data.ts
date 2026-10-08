@@ -50,9 +50,9 @@ export const PROJECTS: Project[] = [
     id: "p2",
     title: "Philkart",
     year: "2026",
-    oneLine: "A store built like it expects to get big. Type safe from database to button.",
+    oneLine: "A product catalog that stays correct while it grows. Half a million products, no duplicates or gaps between pages.",
     hardPart:
-      "Keyset pagination on a compound index per sort order, so page 900 costs what page 1 does. A worker_threads job seeds a catalog big enough to prove it without blocking the API.",
+      "Cursor pagination on (sort field, _id) with a compound index per sort order, so new inserts can't push items between pages. A worker_threads job seeds a catalog big enough to prove it without blocking the API.",
     stack: ["Next.js", "Express", "MongoDB", "Zod", "Turborepo"],
     liveUrl: "https://philkart-web.vercel.app",
     repoUrl: "https://github.com/sahil-dev28/Philkart",

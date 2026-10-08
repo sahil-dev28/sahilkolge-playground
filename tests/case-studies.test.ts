@@ -53,7 +53,7 @@ test("no empty copy", () => {
     for (const text of [c.problem, c.approach, c.outcome, ...c.tags]) assert.ok(text.trim(), c.slug);
     for (const m of c.meta) assert.ok(m.label.trim() && m.value.trim(), c.slug);
     for (const a of c.architecture) assert.ok(a.label.trim() && a.items.length > 0, a.label);
-    for (const h of c.hardProblems) assert.ok(h.title.trim() && h.problem.trim() && h.fix.trim(), h.title);
+    for (const h of c.hardProblems) assert.ok(h.title.trim() && h.problem.trim() && ("fix" in h ? h.fix : h.tradeOff).trim(), h.title);
   }
 });
 
