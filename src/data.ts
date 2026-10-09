@@ -69,7 +69,7 @@ export const PROJECTS: Project[] = [
     hardPart:
       "Map markers follow filters stored in the URL, so a search stays shareable and back-button safe, and the list never flashes empty while paging.",
     stack: ["React", "TanStack Query", "Zustand", "Leaflet"],
-    liveUrl: "https://urban-estate-sahilkolge-dev.vercel.app",
+    liveUrl: "https://urban-estate-web.vercel.app",
     repoUrl: "https://github.com/sahil-dev28/Urban_Estate",
     caseStudyUrl: "/work/urban-estate",
   },
@@ -82,7 +82,7 @@ export const PROJECTS: Project[] = [
     hardPart:
       "Axios interceptors handle every failure centrally, and 30+ data hooks let the storefront and admin share endpoints. Razorpay checkout across cart, wishlist and orders.",
     stack: ["React", "Express", "Prisma", "Razorpay"],
-    liveUrl: "https://e-commerce-user-frontend-sahilkolge-dev.vercel.app",
+    liveUrl: "https://e-commerce-user-web.vercel.app/auth/login",
     repoUrl: "https://github.com/sahil-dev28/E-commerce-smk-user-frontend",
   },
   {
