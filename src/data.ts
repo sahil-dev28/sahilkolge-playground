@@ -136,5 +136,5 @@ export const CONTACT: Contact = {
 
 export const RESUME_URL = "/sahil-kolge-resume.pdf";
 export const SOURCE_URL =
-  "https://github.com/sahil-dev28/sahilkolge-playground";
+  "https://github.com/sahil-dev28/sahilkolge-portfolio-v2";
 export const SITE_URL = "https://sahilkolge-dev.vercel.app";
