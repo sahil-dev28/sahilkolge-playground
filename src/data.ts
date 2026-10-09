@@ -82,7 +82,7 @@ export const PROJECTS: Project[] = [
     hardPart:
       "Axios interceptors handle every failure centrally, and 30+ data hooks let the storefront and admin share endpoints. Razorpay checkout across cart, wishlist and orders.",
     stack: ["React", "Express", "Prisma", "Razorpay"],
-    liveUrl: "https://e-commerce-user-web.vercel.app/auth/login",
+    liveUrl: "https://e-commerce-user-sahil-web.vercel.app/auth/login",
     repoUrl: "https://github.com/sahil-dev28/E-commerce-smk-user-frontend",
   },
   {
